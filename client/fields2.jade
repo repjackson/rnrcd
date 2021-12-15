@@ -931,23 +931,24 @@ template(name='boolean_edit')
 
 
 template(name='boolean_view')
-    div(title=title)
-        .ui.inline.grey.small.header
-            if icon
-                //- i.grey.icon(class=icon)
-                +i name=icon cl='ui inline mini image'
-            if title
-                |#{title}
-            else if label
-                |#{label}
-            else if key
-                |#{key}
+    if field_value
+        div(title=title)
+            .ui.inline.grey.small.header
+                if icon
+                    //- i.grey.icon(class=icon)
+                    +i name=icon cl='ui inline mini image'
+                if title
+                    |#{title}
+                else if label
+                    |#{label}
+                else if key
+                    |#{key}
+                else
+                    |#{this}
+            if field_value
+                i.large.green.checkmark.icon
             else
-                |#{this}
-        if field_value
-            i.large.green.checkmark.icon
-        else
-            i.cancel.grey.icon
+                i.cancel.grey.icon
 
 template(name='single_doc_view')
     div

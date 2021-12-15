@@ -15,19 +15,19 @@ template(name='profile')
                     a.ui.center.aligned.inline.header.mobile.hidden(href="/user/#{current_user.username}/credit" title='credit')
                         |#{user.points}p
                     if is_current_user
-                        a.ui.button(href="/user/#{current_user.username}/edit" title='profile settings')
-                            i.cog.icon
-                            |edit profile
+                        a.ui.icon.circular.button(href="/user/#{current_user.username}/edit" title='profile settings')
+                            i.cog.large.icon
+                            // |edit profile
                     else if is_admin
                         a.ui.button(href="/user/#{current_user.username}/edit" title='profile settings')
                             +i name='settings' cl='ui avatar image'
-                            |edit profile
+                            // |edit profile
                     // unless is_current_user
                     //     +friend_button
                     if is_current_user
-                        .ui.button.logout
-                            i.sign.out.alternate.icon
-                            |log out
+                        .ui.large.compact.icon.circular.button.logout
+                            i.sign.out.alternate.large.icon
+                            // |log out
                     if admin
                         .ui.header
                             i.shield.icon
