@@ -159,7 +159,7 @@ if Meteor.isClient
 
         cart_amount: ->
             cart_amount = Docs.find({
-                model:'thing'
+                model:'cart_item'
                 status:'cart'
                 _author_id:Meteor.userId()
             }).count()
@@ -171,7 +171,7 @@ if Meteor.isClient
             #         _author_id:Meteor.userId()
             # if co 
             Docs.find 
-                model:'thing'
+                model:'cart_item'
                 _author_id: Meteor.userId()
                 # order_id:co._id
                 status:'cart'

@@ -98,7 +98,7 @@ if Meteor.isClient
                     status: 'delivered' 
       
         'click .delete_order': ->
-            thing_count = Docs.find(model:'thing').count()
+            thing_count = Docs.find(model:'cart_item').count()
             if confirm "delete? #{thing_count} things still"
                 Docs.remove @_id
                 Router.go "/orders"
@@ -146,7 +146,7 @@ if Meteor.isServer
     Meteor.publish 'order_things', (order_id)->
         order = Docs.findOne order_id
         Docs.find
-            model:'thing'
+            model:'cart_item'
             order_id: order_id
 
     # Meteor.methods

@@ -22,9 +22,11 @@ template(name='product_view')
                     // a(href="{{c.url image_id}}" target="_window")
                     // .four.wide.column
                     img.ui.rounded.fluid.image.zoomer(src="{{c.url image_id}}")
-                if image_id2
-                    .four.wide.column
+                .eight.wide.column
+                    if image_id2
                         img.ui.rounded.image.zoomer(src="{{c.url image_id2}}")
+                    if image_id3
+                        img.ui.rounded.image.zoomer(src="{{c.url image_id3}}")
                 .eight.wide.column
                     +html_view key='description' direct=true
                     // +text_view key='size_description' label='size description'  direct=true

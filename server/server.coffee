@@ -205,39 +205,42 @@ Meteor.publish 'doc_tags', (picked_tags)->
 
 
 
+Meteor.publish 'my_cart', ()->
+    Docs.find 
+        model:'cart_item'
 Meteor.publish 'order_count', (
     )->
     @unblock()
     self = @
-    match = {model:'order', app:'nf'}
+    match = {model:'order', app:'cookie'}
     Counts.publish this, 'order_count', Docs.find(match)
     return undefined
 Meteor.publish 'ingredient_count', (
     )->
     @unblock()
     self = @
-    match = {model:'ingredient', app:'nf'}
+    match = {model:'ingredient', app:'cookie'}
     Counts.publish this, 'ingredient_count', Docs.find(match)
     return undefined
 Meteor.publish 'product_count', (
     )->
     @unblock()
     self = @
-    match = {model:'product', app:'nf'}
+    match = {model:'product', app:'cookie'}
     Counts.publish this, 'product_count', Docs.find(match)
     return undefined
 Meteor.publish 'source_count', (
     )->
     @unblock()
     self = @
-    match = {model:'source', app:'nf'}
+    match = {model:'source', app:'cookie'}
     Counts.publish this, 'source_count', Docs.find(match)
     return undefined
 Meteor.publish 'subscription_count', (
     )->
     @unblock()
     self = @
-    match = {model:'product_subscription', app:'nf'}
+    match = {model:'product_subscription', app:'cookie'}
     Counts.publish this, 'subscription_count', Docs.find(match)
     return undefined
     
@@ -246,7 +249,7 @@ Meteor.publish 'giftcard_count', (
     )->
     @unblock()
     self = @
-    match = {model:'giftcard', app:'nf'}
+    match = {model:'giftcard', app:'cookie'}
     Counts.publish this, 'giftcard_count', Docs.find(match)
     return undefined
 
