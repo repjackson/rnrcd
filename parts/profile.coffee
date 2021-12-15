@@ -29,7 +29,7 @@ if Meteor.isClient
     #         "user_#{Router.current().params.group}"
 
     Template.profile.helpers
-        user_from_username_param: ->
+        current_user: ->
             Meteor.users.findOne username:Router.current().params.username
 
         user: ->
@@ -173,6 +173,23 @@ if Meteor.isClient
 
 
     Template.user_credit.events
+        'click .earn_crumb': (e,t)->
+            $('body').toast(
+                # showIcon: 'heart'
+                message: "crumb earned"
+                # showProgress: 'bottom'
+                class: 'success'
+                # displayTime: 'auto',
+                showProgress: 'bottom',
+                classProgress: 'red'
+                position: "bottom right"
+            )
+            Meteor.users.update Meteor.userId(),
+                $inc: 
+                    credit:.01
+                    points:1
+                    crumbs:1
+
         'click .add_credits': ->
             amount = parseInt $('.deposit_amount').val()
             amount_times_100 = parseInt amount*100
@@ -234,25 +251,25 @@ if Meteor.isClient
 
 
 
-    Template.user_credit.events
-        'click .add_credit': ->
-            user = Meteor.users.findOne(username:Router.current().params.username)
-            Meteor.users.update Meteor.userId(),
-                $inc:points:10
-                # $set:points:1
-        'click .remove_points': ->
-            user = Meteor.users.findOne(username:Router.current().params.username)
-            Meteor.users.update Meteor.userId(),
-                $inc:points:-1
-        'click .add_credits': ->
-            deposit_amount = parseInt $('.deposit_amount').val()*100
-            calculated_amount = deposit_amount*1.02+20
+    # Template.user_credit.events
+    #     'click .add_credit': ->
+    #         user = Meteor.users.findOne(username:Router.current().params.username)
+    #         Meteor.users.update Meteor.userId(),
+    #             $inc:points:10
+    #             # $set:points:1
+    #     'click .remove_points': ->
+    #         user = Meteor.users.findOne(username:Router.current().params.username)
+    #         Meteor.users.update Meteor.userId(),
+    #             $inc:points:-1
+    #     'click .add_credits': ->
+    #         deposit_amount = parseInt $('.deposit_amount').val()*100
+    #         calculated_amount = deposit_amount*1.02+20
             
-            # Template.instance().checkout.open
-            #     name: 'credit deposit'
-            #     # email:Meteor.user().emails[0].address
-            #     description: 'gold run'
-            #     amount: calculated_amount
+    #         # Template.instance().checkout.open
+    #         #     name: 'credit deposit'
+    #         #     # email:Meteor.user().emails[0].address
+    #         #     description: 'gold run'
+    #         #     amount: calculated_amount
 
 
 

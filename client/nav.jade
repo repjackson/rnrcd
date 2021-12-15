@@ -15,7 +15,7 @@ template(name='nav')
             // +i name='food'
             img(src="https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Screen_Shot_2021-05-14_at_12.58.25_PM_360x.png?v=1621018741")
             |Rock 'n Roll Cookie Dough
-        a.item.zoomer(href='/shop' class="{{isActivePath '/shop'}}")
+        a.item.zoomer.close_bars(href='/shop' class="{{isActivePath '/shop'}}")
             +i name='food-cart'
             // +i name='food'
             // i.home.icon
@@ -46,7 +46,7 @@ template(name='nav')
                     .ui.avatar.image.bell
                         +i name='notification'
                 if currentUser.admin
-                    a.item(href="/admin" title='admin')
+                    a.item.close_bars(href="/admin" title='admin')
                         +i name='shield'
                 // a.item(href='/user/#{currentUser.username}/credit' class="{{isActiveRoute 'user_credit'}}" title='current wallet balance')
                 // a.item.toggle_walletbar(title='credit')

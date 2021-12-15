@@ -1,36 +1,25 @@
 template(name='profile')
     img.ui.fluid.image.checkin_banner(src="{{c.url 'cafe'}}")
-    with user_from_username_param
+    with current_user
         .ui.stackable.padded.grid
             .row
                 //- img.ui.image.checkin_banner(src="{{c.url banner_image width=1000 height=1000 crop='crop'}}")
                 .four.wide.column.scrolling
-                    a.item.mobile.hidden(href="/user/#{user_from_username_param.username}")
-                        img.ui.fluid.rounded.image(src="{{c.url image_id height=300 width=300 gravity='face' crop='fill'}}")
+                    a.item.mobile.hidden(href="/user/#{current_user.username}")
+                        img.ui.fluid.rounded.image(src="{{c.url current_user.image_id height=300 width=300 gravity='face' crop='fill'}}")
                     // .spacer
-                    a(href="/user/#{username}")
-                        .ui.center.aligned.header
-                            // strong #{name}
-                            strong #{user.first_name} #{user.last_name}
-                            small @#{user.username}        
-                    a.ui.center.aligned.inline.header.mobile.hidden(href="/user/#{user_from_username_param.username}/credit" title='credit')
+                    .ui.center.aligned.header
+                        // strong #{name}
+                        strong #{user.first_name} #{user.last_name}
+                        small @#{user.username}        
+                    a.ui.center.aligned.inline.header.mobile.hidden(href="/user/#{current_user.username}/credit" title='credit')
                         |#{user.points}p
-                    .ui.two.column.middle.aligned.grid.mobile.only
-                        // .column
-                        //     img.ui.small.inline.image.mobile.only(src="{{c.url image_id height=300 width=300 gravity='face' crop='fill'}}")
-                        .column
-                            .ui.inline.header
-                                strong #{user.name}
-                                //- small @#{user.username}        
-                            a.ui.inline.header(href="/user/#{user_from_username_param.username}/credit" title='credit')
-                                +i name='coins'
-                                |#{user.points}p
                     if is_current_user
-                        a.ui.button(href="/user/#{user_from_username_param.username}/edit" title='profile settings')
+                        a.ui.button(href="/user/#{current_user.username}/edit" title='profile settings')
                             i.cog.icon
                             |edit profile
                     else if is_admin
-                        a.ui.button(href="/user/#{user_from_username_param.username}/edit" title='profile settings')
+                        a.ui.button(href="/user/#{current_user.username}/edit" title='profile settings')
                             +i name='settings' cl='ui avatar image'
                             |edit profile
                     // unless is_current_user
@@ -113,7 +102,7 @@ template(name='user_favorites')
 template(name='user_addresses')
     .ui.inline.header 
         +i name='marker'
-        |#{user_address_docs.count} #{user_from_username_param.username} addresses
+        |#{user_address_docs.count} #{current_user.username} addresses
     .ui.icon.button.add_address
         i.large.plus.icon
     .ui.hidden.divider
@@ -179,10 +168,12 @@ template(name='user_credit')
             .column
                 .ui.inline.header
                     +i name='cookie'
-                    |{{user_from_username_param.points}}
+                    |{{current_user.points}}
                     |crumbs
+                +ibig name='cookie' cl='ui image earn_crumb pointer'
                 .ui.big.button.send_crumbs
-                    |send crumbs
+                    i.send.icon
+                    |send
                 a.ui.big.button(href="/transfers")
                     i.exchange.icon
                     |transfers
