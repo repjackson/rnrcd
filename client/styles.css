@@ -70,6 +70,9 @@ body {
   background: lightgrey;
 }
 
+.white-text {
+    color: white !important;
+}
 .red.button {
     background-color:#DB2828 !important;
 }

@@ -95,5 +95,5 @@ Router.route '*', -> @render 'shop'
 
 # Router.route '/login', -> @render 'login'
 
-Router.route '/', -> @render 'shop'
+Router.route '/', -> @render 'home'
 # Router.route '/', -> @redirect "/user/#{Meteor.user().username}"

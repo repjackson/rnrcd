@@ -1,6 +1,6 @@
 template(name='nav')
     // https://fomantic-ui.com/elements/icon.html#/icon
-    #topnav.topnav.ui.attached.borderles.menu.hscroll
+    #topnav.topnav.ui.attached.borderless.menu.hscroll
         if is_loading
             .icon.item
                 i.big.loading.grey.refresh.icon.cancel
@@ -86,7 +86,7 @@ template(name='nav')
                         |login
                 else 
                     i.food.loading.icon
-    .ui.small.attached.menu.borderles.hscroll
+    .ui.small.attached.menu.borderless.hscroll
         a.item(href='/ingredients' class="{{isActivePath '/ingredients'}}" title='ingredients')
             // +i name='ingredients'
             +ibig name='grocery-shelf'
@@ -103,9 +103,6 @@ template(name='nav')
             // span.mobile.hidden &nbsp; 
             // span.mobile.hidden &nbsp; 
             span.mobile.hidden members
-        a.item(href='/mishi' class="{{isActivePath '/mishi'}}" title='mishi orders')
-            +ibig name='money'
-            span.mobile.hidden mishi
         // a.item(href='/scanner' class="{{isActivePath '/scanner'}}" title='scanner')
         //     +ibig name='scan-stock'
         // a.item(href='/wp' class="{{isActivePath '/wp'}}" title='wordpress')
@@ -122,12 +119,9 @@ template(name='nav')
         a.icon.item(href='/trips' class="{{isActivePath '/trips'}}" title='trips')
             +ibig name='car'
             span.mobile.hidden trips
-        a.icon.item(href='/transfers' class="{{isActivePath '/transfers'}}" title='transfers')
-            +ibig name='donate'
-            span.mobile.hidden transfers
-        a.icon.item(href='/rentals' class="{{isActivePath '/rentals'}}" title='rentals')
-            +ibig name='clock'
-            span.mobile.hidden rentals
+        // a.icon.item(href='/transfers' class="{{isActivePath '/transfers'}}" title='transfers')
+        //     +ibig name='donate'
+        //     span.mobile.hidden transfers
 
         
                 
