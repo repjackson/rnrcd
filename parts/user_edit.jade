@@ -2,8 +2,8 @@ template(name='user_edit')
     with user_from_username_param          
         //- img.ui.fluid.image.checkin_banner(src="{{c.url banner_image_id width=1000 height=500 crop='crop'}}")    
         .ui.stackable.padded.grid
-            .row
-                .four.wide.column.scrolling
+            .three.column.row
+                .column
                     .ui.center.aligned.large.inline.grey.header
                         | #{user_from_username_param.first_name} #{user_from_username_param.last_name}
                     //- +i name='pencil'
@@ -21,7 +21,7 @@ template(name='user_edit')
                             .ui.orange.button.remove_user 
                                 i.remove.icon
                                 |delete user
-                .eight.wide.column.scrolling
+                .column
                     .ui.form
                         +text_edit key='display_name' label='display name' direct=true
                         +text_edit key='first_name' label='first name' direct=true
@@ -33,7 +33,7 @@ template(name='user_edit')
                         +emails_edit
                         .ui.hidden.divider
                         +phone_edit key='phone' label='phone' icon='phone' direct=true
-                .four.wide.column
+                .column
                     +array_edit key='allergens' label='allergens' icon='no-milk' direct=true
                     +array_edit key='food_dislikes' label='food dislikes' icon='disgusting' direct=true
                     if is_admin

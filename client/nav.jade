@@ -10,20 +10,16 @@ template(name='nav')
                 .ui.avatar.image
                     .mobile.hidden
                         +i name='menu--v1'
-                    img.ui.avatar.image.mobile.only(src="/android-chrome-96x96.png")
-        a.item.zoomer(href='/' class="{{isActivePath '/'}}" title='dashboard')
+                    img.ui.avatar.image.mobile.only(src="/android-chrome-192x192.png")
+        a.header.item.zoomer.mobile.hidden(href='/' class="{{isActivePath '/'}}" title='EAT RESPONIBLY!!!')
             // +i name='food'
             img(src="https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Screen_Shot_2021-05-14_at_12.58.25_PM_360x.png?v=1621018741")
-            |rock and roll cookie dough
+            |Rock 'n Roll Cookie Dough
         a.item.zoomer(href='/shop' class="{{isActivePath '/shop'}}")
             +i name='food-cart'
             // +i name='food'
             // i.home.icon
             span.mobile.hidden shop
-            // .mobile.hidden
-            // img.ui.small.image(src="https://nudefoodsmarket.com/wp-content/uploads/2021/03/logo-smaller-300x87.jpg")
-            // img.ui.avatar.image.mobile.only(src="/android-icon-48x48.png")
-            // span.mobile.hidden nude foods market
         // .search.item.zoomer.mobile.hidden(title='search')
         //     .ui.icon.transparent.input
         //         if current_product_search
@@ -32,10 +28,6 @@ template(name='nav')
         //             i.search.large.icon
         //         input.search_products(type='text' autocomplete="off" value=current_product_search)
         // if currentUser
-        a.icon.item(href='/users' class="{{isActivePath '/users'}}" title='users')
-            +i name='groups'
-        // .icon.item 
-        //     i.large.search.icon
         .right.menu
             if currentUser
                 // a.icon.item(href="/cart" class="{{isActivePath '/cart'}}")
@@ -87,26 +79,6 @@ template(name='nav')
                         |login
                 else 
                     i.food.loading.icon
-    // .ui.small.attached.menu.borderless.hscroll
-    //     a.item(href='/members' class="{{isActivePath '/members'}}" title='sources')
-    //         +i name='groups'
-    //         // span.mobile.hidden &nbsp; 
-    //         // span.mobile.hidden &nbsp; 
-    //         span.mobile.hidden members
-    //     // a.item(href='/scanner' class="{{isActivePath '/scanner'}}" title='scanner')
-    //     //     +i name='scan-stock'
-    //     // a.item(href='/wp' class="{{isActivePath '/wp'}}" title='wordpress')
-    //     //     +i name='wordpress'
-    //     a.item(href='/recipes' class="{{isActivePath '/recipes'}}" title='recipes')
-    //         +i name='cookbook'
-    //         span.mobile.hidden recipes
-    //     a.item(href='/orders' class="{{isActivePath '/orders'}}" title='orders')
-    //         +i name='invoice'
-    //         span.mobile.hidden orders
-    //     a.item(href='/posts' class="{{isActivePath '/posts'}}" title='posts')
-    //         +i name='blog'
-    //         span.mobile.hidden blog
-
         
                 
 
@@ -229,7 +201,7 @@ template(name='left_sidebar')
         a.item.toggle_leftbar.mobile.only(href='/' class="{{isActivePath '/'}}" title='home')
             // +i name='food'
             // i.home.icon
-            img.ui.small.centered.image(src="https://nudefoodsmarket.com/wp-content/uploads/2021/03/logo-smaller-300x87.jpg")
+            img.ui.small.centered.image(src="https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Screen_Shot_2021-05-14_at_12.58.25_PM_360x.png?v=1621018741")
             // span.mobile.hidden nude foods market
         // .search.item(title='search')
         //     .ui.icon.transparent.input
@@ -245,29 +217,16 @@ template(name='left_sidebar')
         a.item.toggle_leftbar(href='/ingredients' class="{{isActivePath '/ingredients'}}" title='shop')
             +i name='ingredients'
             | #{ingredient_count} ingredients
-        a.item.toggle_leftbar(href='/sources' class="{{isActivePath '/sources'}}")
-            +i name='field-and-tractor'
-            | #{source_count} sources
-        a.item.toggle_leftbar(href='/mishi' class="{{isActivePath '/mishi'}}")
-            +i name='money'
-            | mishi orders
         a.item.toggle_leftbar(href='/transfers' class="{{isActivePath '/transfers'}}")
             +i name='donate'
-            | point transfers
-        a.icon.item.toggle_leftbar(href='/labels' class="{{isActivePath '/labels'}}" title='labels')
-            +i name='tags'
-            |labels
+            | crumb transfers
         a.item.toggle_leftbar(href='/recipes' class="{{isActivePath '/recipes'}}")
             +i name='cookbook'
             |#{recipe_count} recipes
-        a.item.toggle_leftbar.zoomer(href='/trips' class="{{isActivePath '/trips'}}")
-            +i name='bicycle'
-            |#{recipe_count} trips
-        //         // i.newspaper.icon
-        //         strong.mobile.hidden get involved
-        a.item.toggle_leftbar.zoomer(href='/contact' class="{{isActivePath '/contact'}}" title='news')
-            +i name='phone'
-            | contact
+        if is_porter
+            a.item.toggle_leftbar.zoomer(href='/trips' class="{{isActivePath '/trips'}}")
+                +i name='car'
+                |#{recipe_count} trips
         a.item.toggle_leftbar.zoomer(href='/posts' class="{{isActivePath '/posts'}}" title='posts')
             +i name='blog'
             | #{post_count} posts

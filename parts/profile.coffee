@@ -7,46 +7,46 @@ if Meteor.isClient
         @layout 'user_layout'
         @render 'cart'
         ), name:'user_cart'
-    Router.route '/user/:username/credit', (->
-        @layout 'user_layout'
-        @render 'user_credit'
-        ), name:'user_credit'
-    Router.route '/user/:username/orders', (->
-        @layout 'user_layout'
-        @render 'user_orders'
-        ), name:'user_orders'
-    Router.route '/user/:username/friends', (->
-        @layout 'user_layout'
-        @render 'user_friends'
-        ), name:'user_friends'
-    Router.route '/user/:username/subs', (->
-        @layout 'user_layout'
-        @render 'user_subs'
-        ), name:'user_subs'
-    Router.route '/user/:username/subscriptions', (->
-        @layout 'user_layout'
-        @render 'user_subs'
-        ), name:'user_subscriptions'
-    Router.route '/user/:username/addresses', (->
-        @layout 'user_layout'
-        @render 'user_addresses'
-        ), name:'user_addresses'
-    Router.route '/user/:username/deliveries', (->
-        @layout 'user_layout'
-        @render 'user_deliveries'
-        ), name:'user_deliveries'
-    Router.route '/user/:username/favorites', (->
-        @layout 'user_layout'
-        @render 'user_favorites'
-        ), name:'user_favorites'
-    Router.route '/user/:username/posts', (->
-        @layout 'user_layout'
-        @render 'user_posts'
-        ), name:'user_posts'
-    Router.route '/user/:username/pantry', (->
-        @layout 'user_layout'
-        @render 'user_pantry'
-        ), name:'user_pantry'
+    # Router.route '/user/:username/credit', (->
+    #     @layout 'user_layout'
+    #     @render 'user_credit'
+    #     ), name:'user_credit'
+    # Router.route '/user/:username/orders', (->
+    #     @layout 'user_layout'
+    #     @render 'user_orders'
+    #     ), name:'user_orders'
+    # Router.route '/user/:username/friends', (->
+    #     @layout 'user_layout'
+    #     @render 'user_friends'
+    #     ), name:'user_friends'
+    # Router.route '/user/:username/subs', (->
+    #     @layout 'user_layout'
+    #     @render 'user_subs'
+    #     ), name:'user_subs'
+    # Router.route '/user/:username/subscriptions', (->
+    #     @layout 'user_layout'
+    #     @render 'user_subs'
+    #     ), name:'user_subscriptions'
+    # Router.route '/user/:username/addresses', (->
+    #     @layout 'user_layout'
+    #     @render 'user_addresses'
+    #     ), name:'user_addresses'
+    # Router.route '/user/:username/deliveries', (->
+    #     @layout 'user_layout'
+    #     @render 'user_deliveries'
+    #     ), name:'user_deliveries'
+    # Router.route '/user/:username/favorites', (->
+    #     @layout 'user_layout'
+    #     @render 'user_favorites'
+    #     ), name:'user_favorites'
+    # Router.route '/user/:username/posts', (->
+    #     @layout 'user_layout'
+    #     @render 'user_posts'
+    #     ), name:'user_posts'
+    # Router.route '/user/:username/pantry', (->
+    #     @layout 'user_layout'
+    #     @render 'user_pantry'
+    #     ), name:'user_pantry'
 
 
 
@@ -90,7 +90,7 @@ if Meteor.isClient
             
             $('body').toast(
                 showIcon: 'food'
-                message: "100 points added"
+                message: "100 crumbs added"
                 showProgress: 'bottom'
                 class: 'success'
                 # displayTime: 'auto',

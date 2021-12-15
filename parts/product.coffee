@@ -84,9 +84,9 @@ if Meteor.isClient
                 $('body').toast(
                     showIcon: 'cart plus'
                     message: "#{@title} added"
-                    # showProgress: 'bottom'
+                    showProgress: 'bottom'
                     class: 'success'
-                    # displayTime: 'auto',
+                    displayTime: '3000',
                     position: "bottom right"
                 )
 

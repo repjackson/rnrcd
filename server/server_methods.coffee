@@ -15,7 +15,7 @@ Meteor.methods
         else 
             Docs.insert 
                 model:'stats'
-                app:'nf'
+                app:'cookie'
                 homepage_views:1
 
     add_user: (username)->

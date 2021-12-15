@@ -293,7 +293,7 @@ if Meteor.isServer
         )->
         # console.log picked_ingredients
         self = @
-        match = {model:'product', app:'nf'}
+        match = {model:'product', app:'cookie'}
         if shop_section 
             match.shop_section = shop_section
         if picked_ingredients.length > 0
@@ -352,7 +352,7 @@ if Meteor.isServer
     
         # console.log picked_ingredients
         self = @
-        match = {model:'product', app:'nf'}
+        match = {model:'product', app:'cookie'}
         if picked_ingredients.length > 0
             match.ingredients = $all: picked_ingredients
             # sort = 'price_per_serving'
@@ -392,7 +392,7 @@ if Meteor.isServer
         # console.log 'picked ingredients', picked_ingredients
 
         self = @
-        match = {app:'nf'}
+        match = {app:'cookie'}
         match.model = 'product'
         if shop_section 
             match.shop_section = shop_section
