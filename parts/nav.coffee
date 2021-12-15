@@ -15,7 +15,7 @@ if Meteor.isClient
             $('.ui.left.sidebar')
                 .sidebar({
                     context: $('.bottom.segment')
-                    transition:'overlay'
+                    transition:'push'
                     mobileTransition:'scale'
                     exclusive:true
                     duration:200
@@ -27,8 +27,8 @@ if Meteor.isClient
             $('.ui.rightbar')
                 .sidebar({
                     context: $('.bottom.segment')
-                    transition:'overlay'
-                    mobileTransition:'overlay'
+                    transition:'push'
+                    mobileTransition:'push'
                     exclusive:true
                     duration:200
                     scrollLock:true
@@ -163,18 +163,6 @@ if Meteor.isClient
                 status:'cart'
                 _author_id:Meteor.userId()
             }).count()
-        cart_items: ->
-            # co = 
-            #     Docs.findOne 
-            #         model:'order'
-            #         status:'cart'
-            #         _author_id:Meteor.userId()
-            # if co 
-            Docs.find 
-                model:'cart_item'
-                _author_id: Meteor.userId()
-                # order_id:co._id
-                status:'cart'
                 
         alert_toggle_class: ->
             if Session.get('viewing_alerts') then 'active' else ''

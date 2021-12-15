@@ -301,13 +301,13 @@ img {
     /* box-shadow: 0 2px 2px 2px rgba(50, 50, 100, 0.1) !important; */
 }
 .global_container{
-    transition: transform 1s; /* Animation */
+    transition: transform .25s; /* Animation */
     /* padding-top: 5em !important; */
     /* box-shadow: 0 2px 2px 2px rgba(50, 50, 100, 0.1) !important; */
 }
 .button:hover {
     border-radius: 12px !important;
-    transition: transform 1s; /* Animation */
+    transition: transform .25s; /* Animation */
     transform: scale(1.05) !important; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     box-shadow: inset 0px 0px 10px 10px rgba(250,250,250,0.5);
 }
@@ -663,9 +663,16 @@ input.username_search{
         0px 10px rgba(88,88,88,1),
         0px 8px rgba(78,78,78,1),
         0px 10px 2px 0px rgba(128,128,128,.6); /* shadow */
-} */
 
 .button:active{
+    -webkit-transform: translate(0, 5px) !important; /* depth of button press */
+    transform: translate(0, 5px) !important; /* depth of button press */
+}
+
+.item{
+    transition:transform .25s !important;
+}
+.item:active{
     -webkit-transform: translate(0, 5px) !important; /* depth of button press */
     transform: translate(0, 5px) !important; /* depth of button press */
 }

@@ -62,8 +62,9 @@ template(name='nav')
                 //         +i name='wallet'
                 //     strong ${{int currentUser.credit}}
                 //     // i.cart.icon
-                a.item(href="/user/#{currentUser.username}/credit" class="{{isActiveRoute regex='user_credit'}}" title='your credits')
-                    strong #{currentUser.points}p
+                a.item(href="/user/#{currentUser.username}/credit" class="{{isActiveRoute regex='user_credit'}}" title='your credit')
+                    strong #{currentUser.points}
+                    +i name='cookie'
                 a.item.mobile.hidden(href="/user/#{currentUser.username}" class=user_nav_button_class title=user_nav_button_title)
                     if currentUser.image_id
                         img.ui.avatar.image(src="{{c.url currentUser.image_id width=200 height=200 gravity='face' crop='fill'}}")
@@ -86,25 +87,25 @@ template(name='nav')
                         |login
                 else 
                     i.food.loading.icon
-    .ui.small.attached.menu.borderless.hscroll
-        a.item(href='/members' class="{{isActivePath '/members'}}" title='sources')
-            +i name='groups'
-            // span.mobile.hidden &nbsp; 
-            // span.mobile.hidden &nbsp; 
-            span.mobile.hidden members
-        // a.item(href='/scanner' class="{{isActivePath '/scanner'}}" title='scanner')
-        //     +i name='scan-stock'
-        // a.item(href='/wp' class="{{isActivePath '/wp'}}" title='wordpress')
-        //     +i name='wordpress'
-        a.item(href='/recipes' class="{{isActivePath '/recipes'}}" title='recipes')
-            +i name='cookbook'
-            span.mobile.hidden recipes
-        a.item(href='/orders' class="{{isActivePath '/orders'}}" title='orders')
-            +i name='invoice'
-            span.mobile.hidden orders
-        a.item(href='/posts' class="{{isActivePath '/posts'}}" title='posts')
-            +i name='blog'
-            span.mobile.hidden blog
+    // .ui.small.attached.menu.borderless.hscroll
+    //     a.item(href='/members' class="{{isActivePath '/members'}}" title='sources')
+    //         +i name='groups'
+    //         // span.mobile.hidden &nbsp; 
+    //         // span.mobile.hidden &nbsp; 
+    //         span.mobile.hidden members
+    //     // a.item(href='/scanner' class="{{isActivePath '/scanner'}}" title='scanner')
+    //     //     +i name='scan-stock'
+    //     // a.item(href='/wp' class="{{isActivePath '/wp'}}" title='wordpress')
+    //     //     +i name='wordpress'
+    //     a.item(href='/recipes' class="{{isActivePath '/recipes'}}" title='recipes')
+    //         +i name='cookbook'
+    //         span.mobile.hidden recipes
+    //     a.item(href='/orders' class="{{isActivePath '/orders'}}" title='orders')
+    //         +i name='invoice'
+    //         span.mobile.hidden orders
+    //     a.item(href='/posts' class="{{isActivePath '/posts'}}" title='posts')
+    //         +i name='blog'
+    //         span.mobile.hidden blog
 
         
                 
@@ -134,72 +135,6 @@ template(name='nav')
 //                 small #{when}
 
 
-template(name='footer')
-    .ui.stackable.padded.grid
-        .four.column.row
-            .column
-                img.ui.small.image(src="https://nudefoodsmarket.com/wp-content/uploads/2021/03/logo-smaller-300x87.jpg")
-            
-                .ui.link.list
-                    a.item hello@nudefoodsmarket.com
-                    a.item 555 30th Street
-                    a.item Boulder, CO 80303
-                    a.item (720) 815-5588
-            .column
-                .ui.link.animated.selection.grey.list
-                    a.item(href="/") 
-                        i.home.icon
-                        |Home
-                    a.item(href="/cart") 
-                        i.cart.icon
-                        |Cart
-                    a.item(href='/contact')
-                        i.phone.icon
-                        |Contact us
-                    a.item 
-                        i.smile.icon
-                        |Get Involved
-                    a.item(href='/account') 
-                        i.user.icon
-                        | Account
-                    a.item(href='/p/newsletter') 
-                        i.newspaper.icon
-                        | Newsletter
-                    a.item(href='/p/team') 
-                        i.users.icon
-                        | Nude Foods Team
-                    a.item(hre='/p/refer') 
-                        i.reply.icon
-                        |Refer a Friend
-                    a.item(href='/p/transparency')
-                        |Transparency
-                    a.item(href='/p/hiring') 
-                        | We’re hiring!
-            .column
-                .ui.link.animated.selection.list
-                    a.item(href='/p/faq') FAQ
-                    a.item(href='p/how') How we work
-                    a.item(href='/p/privacy-policy') Privacy policy
-                    a.item(href='/p/tos') Terms of Service
-                    a.item(href='/produce') 
-                        i.food.icon
-                        | Produce
-                    a.item(href='/packaging') 
-                        i.box.icon
-                        | Packaging
-                    a.item(href='/p/local_products') 
-                        i.plant.icon
-                        | Local Products
-                    a.item(href='/shop') 
-                        i.shop.icon
-                        | Shop
-            .column
-                +icolor name='facebook'
-                +icolor name='instagram'
-
-
-
-
 
 template(name='topbar')
     .ui.fluid.attached.segment.topbar.top.sidebar
@@ -226,7 +161,7 @@ template(name='recent_alert')
             
 template(name='cartbar')
     .ui.right.wide.sidebar.cartbar
-        +cart
+        +my_cart
         
 template(name='walletbar')
     .ui.right.sidebar.walletbar

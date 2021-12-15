@@ -5,7 +5,7 @@
 
 Router.route '/cart/', (->
     @layout 'layout'
-    @render 'cart_view'
+    @render 'my_cart'
     ), name:'cart'
 Router.route '/cart/:doc_id', (->
     @layout 'layout'
