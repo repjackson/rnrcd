@@ -39,11 +39,12 @@ template(name='login')
 template(name='register')
     //- img.ui.fluid.image.bg_overlay(src="{{c.url 'forest-bg2' width=1000 crop='fit'}}")    
     .ui.padded.stackable.grid
-        .centered.middle.aligned.row
-            .ten.wide.column
-                img.ui.centered.image(src="https://nudefoodsmarket.com/wp-content/uploads/2021/03/logo-smaller-300x87.jpg")
+        .two.column.row
+            .column
+                img.ui.centered.image(src="https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Screen_Shot_2021-05-14_at_12.58.25_PM_360x.png?v=1621018741")
+            .column
                 h1.ui.center.aligned.header
-                    +i name='user-add'
+                    +i name='add-user-male'
                     | register
                 .ui.inline.small.header 
                     +i name='user-male'
@@ -66,11 +67,13 @@ template(name='register')
                 if can_register
                     //- if registering
                     .ui.fluid.big.button.register(class=enter_class)
-                        i.user.plus.icon
+                        // i.user.plus.icon
+                        +i name='add-user-male'
                         |register
                 else
                     .ui.fluid.big.disabled.button(class=enter_class)
-                        i.user.plus.icon
+                        // i.user.plus.icon
+                        +i name='add-user-male'
                         |register
                     // // .ui.small.header username "#{username}" found
                     
