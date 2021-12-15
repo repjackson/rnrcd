@@ -38,8 +38,9 @@ template(name='nav')
                     |$#{my_cart_subtotal}
                     .ui.avatar.image.cart
                         +i name='shopping-cart'
-                    each cart_items
-                        img.ui.avatar.image(src="{{c.url image_id width=200 height=200 gravity='face' crop='fill'}}")
+                    span.mobile.hidden
+                        each cart_items
+                            img.ui.avatar.image(src="{{c.url image_id width=200 height=200 gravity='face' crop='fill'}}")
                 a.item.toggle_topbar(title='alerts')
                     // i.wallet.icon
                     .ui.avatar.image.bell
@@ -57,7 +58,7 @@ template(name='nav')
                 a.item(href="/user/#{currentUser.username}/credit" class="{{isActiveRoute regex='user_credit'}}" title='your credit')
                     strong #{currentUser.points}
                     +i name='cookie'
-                a.item.mobile.hidden(href="/user/#{currentUser.username}" class="{{isActiveRoute 'profile'}}"  title=user_nav_button_title)
+                a.item.close_bars(href="/user/#{currentUser.username}" class="{{isActiveRoute 'profile'}}"  title=user_nav_button_title)
                     if currentUser.image_id
                         img.ui.avatar.image(src="{{c.url currentUser.image_id width=200 height=200 gravity='face' crop='fill'}}")
                     else

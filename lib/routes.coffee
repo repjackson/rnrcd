@@ -93,7 +93,6 @@ Router.route '*', -> @render 'home'
 #     @render 'reset_password'
 #     ), name:'reset_password'
 
-# Router.route '/login', -> @render 'login'
 
 Router.route '/', -> @render 'home'
 # Router.route '/', -> @redirect "/user/#{Meteor.user().username}"

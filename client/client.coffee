@@ -13,7 +13,7 @@ Template.home.onCreated ->
     @autorun => @subscribe 'model_docs', 'stats', ->
 Template.home.onRendered ->
     Meteor.call 'log_homepage_view', ->
-        console.log '?'
+        # console.log '?'
 Template.home.helpers
     stats: ->
         Docs.findOne
@@ -46,6 +46,9 @@ Template.body.events
     'click .fly_left': (e,t)-> $(e.currentTarget).closest('.grid').transition('fly left', 500)
     # 'click .button': ->
     #     $(e.currentTarget).closest('.button').transition('bounce', 1000)
+    'click .close_bars': -> 
+        console.log 'closing'
+        $('.ui.sidebar').sidebar('hide')
 
     # 'click a(not:': ->
     #     $('.global_container')

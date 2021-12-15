@@ -37,6 +37,7 @@ if Meteor.isClient
                     })
                 else
                     # console.log res
+                    $(e.currentTarget).closest('.grid').transition('zoom', 500)
                     Router.go "/"
                     # Router.go "/user/#{username}"
 
