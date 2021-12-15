@@ -78,7 +78,7 @@ Router.configure
 
 # Router.route '/user/:username', -> @render 'user'
 # Router.route '/verification_confirmation', -> @render 'verification_confirmation'
-Router.route '*', -> @render 'shop'
+Router.route '*', -> @render 'home'
 
 # Router.route '/user/:username/m/:type', -> @render 'user_layout', 'user_section'
 # Router.route '/add_resident', (->

@@ -1,8 +1,9 @@
 template(name='product_view')
     with current_doc
+        img.ui.fluid.image.checkin_banner(src="{{c.url image_id}}")
         .ui.stackable.padded.grid
-            .row
-                .eight.wide.column
+            .three.column.row
+                .column
                     .ui.large.inline.header 
                         //- small viewing
                         | #{title}
@@ -22,12 +23,12 @@ template(name='product_view')
                     // a(href="{{c.url image_id}}" target="_window")
                     // .four.wide.column
                     img.ui.rounded.fluid.image.zoomer(src="{{c.url image_id}}")
-                .eight.wide.column
+                .column
                     if image_id2
                         img.ui.rounded.image.zoomer(src="{{c.url image_id2}}")
                     if image_id3
                         img.ui.rounded.image.zoomer(src="{{c.url image_id3}}")
-                .eight.wide.column
+                .column
                     +html_view key='description' direct=true
                     // +text_view key='size_description' label='size description'  direct=true
                     a.ui.basic.icon.button(href=product_link)
@@ -60,12 +61,8 @@ template(name='product_view')
                     
                     // +product_orders
                 .four.wide.column
-                    .ui.big.fluid.green.button.add_to_cart
-                        i.cart.plus.large.icon
-                        |add to cart (#{price})
-                .four.wide.column
-                    .ui.segment
-                        +product_inventory
+                    // .ui.segment
+                    //     +product_inventory
                     .ui.list
                         .item #{product_link}
                         .item calculated inventory
@@ -80,15 +77,6 @@ template(name='product_view')
                     +product_orders
                 .five.wide.column
                     +product_subscriptions
-                    .ui.green.large.button.add_to_cart
-                        // i.cart.plus.large.icon
-                        +i name='add-shopping-cart--v1' cl='ui avatar image'
-                        |add to cart
-                    .ui.link.card.zoomer.goto_source
-                        img.ui.fluid.image(src="{{c.url product_source.image_id width=200 height=200 gravity='face' crop='fill'}}")
-                        .content
-                            .ui.header.zoomer
-                                |#{product_source.title}
                     .ui.header 
                         i.fork.icon
                         |related products
@@ -98,7 +86,7 @@ template(name='product_view')
         
         
         
-template(name='product_inventory')      
+// template(name='product_inventory')      
     .ui.inline.header 
         +i name='shield'
         |inventory

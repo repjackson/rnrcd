@@ -14,7 +14,8 @@ Router.route '/cart/:doc_id', (->
 Router.route '/cart/:doc_id/edit', (->
     @render 'cart_edit'
     ), name:'cart_edit'
-Router.route '/cart/:doc_id/checkout', (->
+# Router.route '/cart/:doc_id/checkout', (->
+Router.route '/checkout', (->
     @render 'checkout'
     ), name:'checkout'
 

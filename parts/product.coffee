@@ -124,29 +124,29 @@ if Meteor.isClient
                         ready:false
                         ready_timestamp:null
 
-    Template.product_inventory.onCreated ->
-        @autorun => Meteor.subscribe 'inventory_from_product_id', Router.current().params.doc_id
+    # Template.product_inventory.onCreated ->
+    #     @autorun => Meteor.subscribe 'inventory_from_product_id', Router.current().params.doc_id
             
-    Template.product_inventory.events
-        'click .add_inventory': ->
-            count = Docs.find(model:'inventory_item').count()
-            new_id = Docs.insert 
-                model:'inventory_item'
-                product_id:@_id
-                id:count++
-            Session.set('editing_inventory_id', @_id)
-        'click .edit_inventory_item': -> 
-            Session.set('editing_inventory_id', @_id)
-        'click .save_inventory_item': -> 
-            Session.set('editing_inventory_id', null)
+    # Template.product_inventory.events
+    #     'click .add_inventory': ->
+    #         count = Docs.find(model:'inventory_item').count()
+    #         new_id = Docs.insert 
+    #             model:'inventory_item'
+    #             product_id:@_id
+    #             id:count++
+    #         Session.set('editing_inventory_id', @_id)
+    #     'click .edit_inventory_item': -> 
+    #         Session.set('editing_inventory_id', @_id)
+    #     'click .save_inventory_item': -> 
+    #         Session.set('editing_inventory_id', null)
         
-    Template.product_inventory.helpers
-        editing_this: -> Session.equals('editing_inventory_id', @_id)
-        inventory_items: ->
-            Docs.find({
-                model:'inventory_item'
-                product_id:@_id
-            }, sort:'_timestamp':-1)
+    # Template.product_inventory.helpers
+    #     editing_this: -> Session.equals('editing_inventory_id', @_id)
+    #     inventory_items: ->
+    #         Docs.find({
+    #             model:'inventory_item'
+    #             product_id:@_id
+    #         }, sort:'_timestamp':-1)
 
 
     Template.product_subscriptions.helpers

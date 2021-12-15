@@ -208,13 +208,13 @@ if Meteor.isClient
                 # limit:1
 
 
-        sections: ->
-            # if picked_tags.array().length > 0
-            Results.find {
-                model:'section'
-            },
-                sort: count:-1
-                # limit:1
+        # sections: ->
+        #     # if picked_tags.array().length > 0
+        #     Results.find {
+        #         model:'section'
+        #     },
+        #         sort: count:-1
+        #         # limit:1
 
         product_limit: -> Session.get('product_limit')
 
