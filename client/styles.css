@@ -323,29 +323,29 @@ img {
 /*.marker:hover {*/
 /*    content:url("/marker.gif");*/
 /*}*/
-/*.bell:hover {*/
-/*    content:url("/bell.gif");*/
-/*}*/
-/*.cart:hover {*/
-/*    content:url("/cart.gif");*/
-/*    width: 35px;*/
-/*    height: auto;*/
-/*    font-size: .78571429rem;*/
-/*}*/
-/*.rightmenu:hover {*/
-/*    content:url("/menu.gif");*/
-/*    width: 35px;*/
-/*    height: auto;*/
-/*    font-size: .78571429rem;*/
-/*}*/
-/*.leftmenu:hover {*/
-/*    content:url("/leftmenu.gif");*/
-/*    width: 35px;*/
-/*    height: auto;*/
-/*    font-size: .78571429rem;*/
-/*}*/
+.bell:hover {
+    content:url("/bell.gif");
+}
+.cart:hover {
+    content:url("/cart.gif");
+    width: 35px;
+    height: auto;
+    font-size: .78571429rem;
+}
+.rightmenu:hover {
+    content:url("/menu.gif");
+    width: 35px;
+    height: auto;
+    font-size: .78571429rem;
+}
+.leftmenu:hover {
+    content:url("/leftmenu.gif");
+    width: 35px;
+    height: auto;
+    font-size: .78571429rem;
+}
 .zoomer {
-    transition: scale 1s; /* Animation */
+    transition: transform 1s; /* Animation */
 }
 .zoomer:hover {
     /*box-shadow: inset 0px 0px 10px 10px rgba(250,250,250,0.8);*/

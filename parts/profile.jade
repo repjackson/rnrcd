@@ -59,6 +59,7 @@ template(name='user_layout')
                                 +i name='dashboard' cl='ui avatar image'
                                 |dashboard
                             // if is_current_user
+                        .twelve.wide.column.scrolling
                             a.ui.compact.small.button(href="/user/#{username}/credit" class="{{isActiveRoute regex='user_credit'}}")
                                 +i name='money' cl='ui avatar image'
                                 |credit
@@ -96,7 +97,6 @@ template(name='user_layout')
                             a.ui.compact.small.button(href="/user/#{username}/trips" class="{{isActiveRoute 'user_trips'}}")
                                 +i name='bicycle' cl='ui avatar image'
                                 |trips
-                        .twelve.wide.column.scrolling
                             div.global_container
                                 .spacer
                                 +yield

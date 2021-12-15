@@ -3,6 +3,10 @@
 @picked_months = new ReactiveArray []
 
 
+Router.route '/cart/', (->
+    @layout 'layout'
+    @render 'cart_view'
+    ), name:'cart'
 Router.route '/cart/:doc_id', (->
     @layout 'layout'
     @render 'cart_view'

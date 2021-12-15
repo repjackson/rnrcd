@@ -9,14 +9,14 @@ template(name='nav')
                 // .ui.avatar.image.leftmenu
                 .ui.avatar.image
                     .mobile.hidden
-                        +ibig name='menu--v1'
+                        +i name='menu--v1'
                     img.ui.avatar.image.mobile.only(src="/android-chrome-96x96.png")
         a.item.zoomer(href='/' class="{{isActivePath '/'}}" title='dashboard')
-            // +ibig name='food'
+            // +i name='food'
             img(src="https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Screen_Shot_2021-05-14_at_12.58.25_PM_360x.png?v=1621018741")
             |rock and roll cookie dough
         a.item.zoomer(href='/shop' class="{{isActivePath '/shop'}}")
-            +ibig name='food-cart'
+            +i name='food-cart'
             // +i name='food'
             // i.home.icon
             span.mobile.hidden shop
@@ -33,7 +33,7 @@ template(name='nav')
         //         input.search_products(type='text' autocomplete="off" value=current_product_search)
         // if currentUser
         a.icon.item(href='/users' class="{{isActivePath '/users'}}" title='users')
-            +ibig name='groups'
+            +i name='groups'
         // .icon.item 
         //     i.large.search.icon
         .right.menu
@@ -45,7 +45,7 @@ template(name='nav')
                     strong #{cart_items.count}
                     |$#{my_cart_subtotal}
                     .ui.avatar.image.cart
-                        +ibig name='shopping-cart'
+                        +i name='shopping-cart'
                     each cart_items
                         img.ui.avatar.image(src="{{c.url image_id width=200 height=200 gravity='face' crop='fill'}}")
                 a.item.toggle_topbar(title='alerts')
@@ -54,12 +54,12 @@ template(name='nav')
                         +i name='notification'
                 // if is_admin
                 a.item(href="/admin" title='admin')
-                    +ibig name='shield'
+                    +i name='shield'
                 // a.item(href='/user/#{currentUser.username}/credit' class="{{isActiveRoute 'user_credit'}}" title='current wallet balance')
                 // a.item.toggle_walletbar(title='credit')
                 //     // i.wallet.icon
                 //     .ui.avatar.image
-                //         +ibig name='wallet'
+                //         +i name='wallet'
                 //     strong ${{int currentUser.credit}}
                 //     // i.cart.icon
                 a.item(href="/user/#{currentUser.username}/credit" class="{{isActiveRoute regex='user_credit'}}" title='your credits')
@@ -87,41 +87,24 @@ template(name='nav')
                 else 
                     i.food.loading.icon
     .ui.small.attached.menu.borderless.hscroll
-        a.item(href='/ingredients' class="{{isActivePath '/ingredients'}}" title='ingredients')
-            // +i name='ingredients'
-            +ibig name='grocery-shelf'
-            // span.mobile.hidden &nbsp; 
-            // span.mobile.hidden &nbsp; 
-            span.mobile.hidden ingredients
-        a.item(href='/sources' class="{{isActivePath '/sources'}}" title='sources')
-            +ibig name='field-and-tractor'
-            // span.mobile.hidden &nbsp; 
-            // span.mobile.hidden &nbsp; 
-            span.mobile.hidden sources
         a.item(href='/members' class="{{isActivePath '/members'}}" title='sources')
-            +ibig name='groups'
+            +i name='groups'
             // span.mobile.hidden &nbsp; 
             // span.mobile.hidden &nbsp; 
             span.mobile.hidden members
         // a.item(href='/scanner' class="{{isActivePath '/scanner'}}" title='scanner')
-        //     +ibig name='scan-stock'
+        //     +i name='scan-stock'
         // a.item(href='/wp' class="{{isActivePath '/wp'}}" title='wordpress')
-        //     +ibig name='wordpress'
+        //     +i name='wordpress'
         a.item(href='/recipes' class="{{isActivePath '/recipes'}}" title='recipes')
-            +ibig name='cookbook'
+            +i name='cookbook'
             span.mobile.hidden recipes
-        a.icon.item(href='/orders' class="{{isActivePath '/orders'}}" title='orders')
-            +ibig name='invoice'
+        a.item(href='/orders' class="{{isActivePath '/orders'}}" title='orders')
+            +i name='invoice'
             span.mobile.hidden orders
-        a.icon.item(href='/posts' class="{{isActivePath '/posts'}}" title='posts')
-            +ibig name='blog'
+        a.item(href='/posts' class="{{isActivePath '/posts'}}" title='posts')
+            +i name='blog'
             span.mobile.hidden blog
-        a.icon.item(href='/trips' class="{{isActivePath '/trips'}}" title='trips')
-            +ibig name='car'
-            span.mobile.hidden trips
-        // a.icon.item(href='/transfers' class="{{isActivePath '/transfers'}}" title='transfers')
-        //     +ibig name='donate'
-        //     span.mobile.hidden transfers
 
         
                 
@@ -257,46 +240,46 @@ template(name='right_sidebar')
             |#{currentUser.name}
         with currentUser
             a.item.toggle_rightbar(href="/user/#{username}" class="{{isActiveRoute regex='user_dashboard'}}")
-                +ibig name='dashboard' cl='ui avatar image'
+                +i name='dashboard' cl='ui avatar image'
                 // i.dashboard.icon
                 |dashboard
             a.item.toggle_rightbar(href="/user/#{username}/credit" class="{{isActiveRoute regex='user_credit'}}")
-                +ibig name='money' cl='ui avatar image'
+                +i name='money' cl='ui avatar image'
                 // i.coins.icon
                 |credit
             a.item.toggle_rightbar(href="/user/#{username}/orders" class="{{isActiveRoute 'user_orders'}}")
-                +ibig name='check' cl='ui avatar image'
+                +i name='check' cl='ui avatar image'
                 |orders
             a.item.toggle_rightbar(href="/user/#{username}/subscriptions" class="{{isActiveRoute 'user_subscriptions'}}")
-                +ibig name='clock' cl='ui avatar image'
+                +i name='clock' cl='ui avatar image'
                 |subscriptions
             a.item.toggle_rightbar(href="/user/#{username}/pantry" class="{{isActiveRoute 'user_pantry'}}")
-                +ibig name='cupboard' cl='ui avatar image'
+                +i name='cupboard' cl='ui avatar image'
                 |pantry
             a.item.toggle_rightbar(href="/user/#{username}/friends" class="{{isActiveRoute 'user_friends'}}")
-                +ibig name='friends' cl='ui avatar image'
+                +i name='friends'
                 |friends
             a.item.toggle_rightbar(href="/user/#{username}/cart" class="{{isActiveRoute 'user_cart'}}")
-                +ibig name='shopping-cart' cl='ui avatar image'
+                +i name='shopping-cart'
                 |cart
             a.item.toggle_rightbar(href="/work" class="{{isActiveRoute 'work'}}")
-                +ibig name='trust' cl='ui avatar image'
+                +i name='trust'
                 |work
             a.item.toggle_rightbar(href="/user/#{username}/trips" class="{{isActiveRoute 'user_trips'}}")
-                +ibig name='bicycle' cl='ui avatar image'
+                +i name='bicycle'
                 |trips
             a.item.toggle_rightbar(href="/user/#{username}/giftcards" class="{{isActiveRoute 'user_giftcards'}}")
-                +ibig name='certificate' cl='ui avatar image'
+                +i name='certificate'
                 |gift cards
         // .ui.divider
         a.item.toggle_rightbar.no_blink(href="/user/#{currentUser.username}/edit" title='edit your account')
-            +ibig name='settings' cl='ui avatar image'
+            +i name='settings'
             |settings
         a.item.logout
             if is_logging_out
                 i.refresh.loading.icon
             else
-                +ibig name='exit-sign' cl='ui avatar image'
+                +i name='exit-sign'
                 // i.sign.out.icon
             |logout
 

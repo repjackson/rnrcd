@@ -299,12 +299,12 @@ if Meteor.isClient
 
 
 
-    Template.mishi_sales.onCreated ->
-        @autorun => Meteor.subscribe 'product_mishi_sales', Router.current().params.doc_id
-    Template.mishi_sales.helpers
+    Template.product_orders.onCreated ->
+        @autorun => Meteor.subscribe 'product_orders_pub', Router.current().params.doc_id
+    Template.product_orders.helpers
         mishi_sale_docs: ->
             Docs.find 
-                model:'mishi_order'
+                model:'order'
     Template.product_edit.onCreated ->
         @autorun => Meteor.subscribe 'doc_by_id', Router.current().params.doc_id
         # @autorun => Meteor.subscribe 'doc', Router.current().params.doc_id
@@ -462,16 +462,11 @@ if Meteor.isServer
         Docs.find 
             model:'ingredient'
             title: {$regex:"#{ingredient_title_queary}",$options:'i'}
-    Meteor.publish 'product_mishi_sales', (product_id)->
+    Meteor.publish 'product_orders_pub', (product_id)->
         product = Docs.findOne product_id
         # console.log 'finding mishi for', product
         if product.slug 
             Docs.find 
-                model:'mishi_order'
+                model:'order'
                 _product:product.slug
         # else console.log 'no product slug', product
-    Meteor.publish 'wordpress_sales', (product_id)->
-        product = Docs.findOne product_id
-        Docs.find 
-            model:'woo_order'
-            _product:product.slug
