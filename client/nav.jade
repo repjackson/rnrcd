@@ -1,6 +1,6 @@
 template(name='nav')
     // https://fomantic-ui.com/elements/icon.html#/icon
-    #topnav.topnav.ui.attached.menu.hscroll
+    #topnav.topnav.ui.attached.borderles.menu.hscroll
         if is_loading
             .icon.item
                 i.big.loading.grey.refresh.icon.cancel
@@ -11,8 +11,10 @@ template(name='nav')
                     .mobile.hidden
                         +ibig name='menu--v1'
                     img.ui.avatar.image.mobile.only(src="/android-chrome-96x96.png")
-        a.item.zoomer(href='/dashboard' class="{{isActivePath '/'}}" title='dashboard')
-            +ibig name='dashboard'
+        a.item.zoomer(href='/' class="{{isActivePath '/'}}" title='dashboard')
+            // +ibig name='food'
+            img(src="https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Screen_Shot_2021-05-14_at_12.58.25_PM_360x.png?v=1621018741")
+            |rock and roll cookie dough
         a.item.zoomer(href='/shop' class="{{isActivePath '/shop'}}")
             +ibig name='food-cart'
             // +i name='food'
@@ -84,7 +86,7 @@ template(name='nav')
                         |login
                 else 
                     i.food.loading.icon
-    .ui.small.attached.menu.hscroll
+    .ui.small.attached.menu.borderles.hscroll
         a.item(href='/ingredients' class="{{isActivePath '/ingredients'}}" title='ingredients')
             // +i name='ingredients'
             +ibig name='grocery-shelf'
@@ -111,9 +113,6 @@ template(name='nav')
         a.item(href='/recipes' class="{{isActivePath '/recipes'}}" title='recipes')
             +ibig name='cookbook'
             span.mobile.hidden recipes
-        a.item(href='/questions' class="{{isActivePath '/questions'}}" title='questions')
-            +ibig name='ask'
-            span.mobile.hidden questions
         a.icon.item(href='/orders' class="{{isActivePath '/orders'}}" title='orders')
             +ibig name='invoice'
             span.mobile.hidden orders
