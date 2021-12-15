@@ -1,6 +1,6 @@
 template(name='home')
     .ui.stackable.padded.centered.grid
-        .one.column.row(style="background-position: center center; background-image: url('https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Blueberry_Cooked_1512x.png?v=1619982072');")
+        .one.column.row(style="background-color:rgba(255,0,0,0.5); background-position: center center; background-image: url('https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Blueberry_Cooked_1512x.png?v=1619982072');")
             .center.aligned.inverted.column.white-text
                 .ui.big.inverted.header
                     |ROCK-N- ROLL COOKIE CO.
@@ -8,19 +8,14 @@ template(name='home')
                     |Great Raw or Baked
                 .ui.big.header.f20
                     |EAT RESPONIBLY!!!
+                .ui.inverted.header.f20
                     |FREE SHIPPING @ $49
-                .ui.big.header.f20
+                a.ui.big.button(href="/register")
                     |JOIN OUR TRIBE
-                .ui.big.header.f20
+                a.ui.big.button(href="/register")
                     |BECOME AN AMBASSADOR OF HAPPINESS TODAY!
                 .ui.big.header.f20
                     |Orders received prior to Monday each week ship on Wednesday
-                    // |{{lower "we deliver local, organic groceries, meals and household products in zero-waste, reusable containers to your door by bicycles"}}
-
-        // .one.column.row
-        //     .center.aligned.column
-        //         .ui.header start shopping zero waste!
-
         .two.column.row
             .column
                 img(src="https://cdn.shopify.com/s/files/1/0530/4048/0439/files/190412-keto-magic-cookies-horizontal-1556311562_720x.png?v=1609975046")

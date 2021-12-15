@@ -42,9 +42,6 @@ template(name='product_view')
                     +boolean_view key='organic' label='organic' direct=true icon='organic-food'
                     +boolean_view key='no_gmo' label='no gmo' direct=true icon='no-gmo'
                     +boolean_view key='jar' label='jar container (requires deposit & return)' direct=true icon='mason-jar'
-                    // .ui.header #{menu_section}
-                            +link_edit key='amazon_referral_link' label='amazon referral link' icon='amazon' direct=true
-                    // +boolean_view key='has_2cup' label='2 cup' direct=true icon='cup'
                     div
                     .ui.inline.header 
                         +i name='ingredients'
@@ -55,7 +52,6 @@ template(name='product_view')
                     +voting_full
                     +link_view key='external_link' label='external link' icon='globe' direct=true
                     +comments
-                    
                     // +product_orders
                 .four.wide.column
                     // .ui.segment
@@ -68,8 +64,8 @@ template(name='product_view')
                         .item expected inventory
                         .item query params: #{query_params}
                     i.refresh.large.link.icon.calc_stats(title='refresh_stats')
-                // .four.wide.column
-                //     +product_reviews
+                .four.wide.column
+                    +product_reviews
                 .five.wide.column
                     +product_orders
                 .five.wide.column

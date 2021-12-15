@@ -127,6 +127,12 @@ Meteor.publish 'me', ->
             image_id:1
             tags:1
             points:1
+            credit:1
+            crumbs:1
+            admin:1
+            display_name:1
+            first_name:1
+            last_name:1
     })
 
 Meteor.publish 'document_by_slug', (slug)->

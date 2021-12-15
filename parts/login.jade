@@ -66,7 +66,7 @@ template(name='register')
                 .ui.hidden.divider
                 if can_register
                     //- if registering
-                    .ui.fluid.big.button.register(class=enter_class)
+                    .ui.fluid.big.circular.basic.button.register(class=enter_class)
                         // i.user.plus.icon
                         +i name='add-user-male'
                         |register
@@ -76,8 +76,8 @@ template(name='register')
                         +i name='add-user-male'
                         |register
                     // // .ui.small.header username "#{username}" found
-                    
-                a.ui.button(href='/login') 
+                .ui.horizontal.divider or
+                a.ui.fluid.basic.button(href='/login') 
                     // i.right.chevron.icon
                     +i name='internal' cl='ui avatar image'
                     |login

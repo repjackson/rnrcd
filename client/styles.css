@@ -255,9 +255,6 @@ img {
     /*border-radius: 10px !important;*/
 }
 
-#topnav {
-    /*border-radius: 0px 0px 10px 10px !important;*/
-}
 .hour_picked {
     /* outline: lightgreen solid 2px !important; */
     filter: drop-shadow(2px 2px 5px rgba(200,200,200,.7)) !important;
@@ -570,11 +567,11 @@ input.username_search{
     padding:40px!important;
 } */
 
-.button {
-    border-radius: 15px !important; 
+/*.button {*/
+/*    border-radius: 15px !important; */
     /*filter: invert(.9) !important;*/
-    margin:2px !important;
-}
+/*    margin:2px !important;*/
+/*}*/
 
 
 .button:not(.circular) {
@@ -1085,6 +1082,7 @@ h1.ui.header{
 	opacity: .8 !important;
     border-bottom: 0px;
     transition: background-color 3s; 
+    border-radius: 0px 0px 10px 10px !important;
 	/*overflow-x:scroll;*/
 	/*max-height:1000px;*/
 	/*max-height:85vh;*/

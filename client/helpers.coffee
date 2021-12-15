@@ -6,7 +6,7 @@ Template.registerHelper 'parent_doc', () ->
     Docs.findOne @parent_id
     # Template.parentData()
 
-Template.registerHelper 'cart_items', (model) ->
+Template.registerHelper 'cart_items', () ->
     Docs.find 
         model:'cart_item'
         _author_id: Meteor.userId()

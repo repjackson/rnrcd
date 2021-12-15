@@ -1,6 +1,6 @@
 template(name='shop')
     .ui.stackable.padded.grid
-        .four.wide.column
+        .sixteen.wide.column
             .ui.center.aligned.header
                 +i name='food-cart'
                 // |#{product_docs.count}
@@ -36,7 +36,7 @@ template(name='shop')
             // each ingredients
             //     button.ui.compact.button.pick_ingredient(tabindex="0" class=result_class title=count) #{title}
             //         //- small #{count}
-        .twelve.wide.column.scrollin
+        .sixteen.wide.column.scrollin
             // .ui.info.small.message
             //     .content
             //         .ui.inline.header
@@ -53,7 +53,7 @@ template(name='shop')
             //         | #{this}
             // // div
             // +i name='clock' cl='ui inline mini image'
-            .sorting_row.hscroll
+            // .sorting_row.hscroll
                 // +session_set key='view_shop_section' value='beans' label='beans' icon='white-beans'
                 // +session_set key='view_shop_section' value='coffee' label='coffee' icon='coffee'
                 // +session_set key='view_shop_section' value='snacks' label='snacks' icon='potato-chips'
@@ -109,12 +109,12 @@ template(name='shop')
                             +set_product_limit amount=20
                 // .spacer 
             if subs_ready
-                if no_products
-                    .ui.center.aligned.segment
-                        .ui.header no products found
-                        .ui.button.request_product
-                            |request product
-                else if one_product
+                // if no_products
+                //     .ui.center.aligned.segment
+                //         .ui.header no products found
+                //         .ui.button.request_product
+                //             |request product
+                if one_product
                     .ui.stackable.center.aligned.one.column.grid
                         each product_docs
                             +product_card
