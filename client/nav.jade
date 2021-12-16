@@ -56,7 +56,7 @@ template(name='nav')
                 //         +i name='wallet'
                 //     strong ${{int currentUser.credit}}
                 //     // i.cart.icon
-                a.item.fly_right(href="/user/#{currentUser.username}/credit" class="{{isActiveRoute regex='user_credit'}}" title='your credit')
+                a.item.fly_right.close_bars(href="/user/#{currentUser.username}/credit" class="{{isActiveRoute regex='user_credit'}}" title='your credit')
                     strong #{currentUser.points}
                     +i name='cookie'
                 a.item.close_bars.fly_right(href="/user/#{currentUser.username}" class="{{isActiveRoute 'profile'}}"  title=user_nav_button_title)
@@ -149,7 +149,7 @@ template(name='right_sidebar')
             img.ui.avatar.compact.image(src="{{c.url currentUser.image_id height=200 width=200 gravity='face' crop='fill'}}")
             |#{currentUser.name}
         with currentUser
-            a.item.toggle_rightbar(href="/user/#{username}" class="{{isActiveRoute regex='user_dashboard'}}")
+            a.item.toggle_rightbar(href="/user/#{username}" class="{{isActiveRoute regex='profile'}}")
                 +i name='dashboard' cl='ui avatar image'
                 // i.dashboard.icon
                 |dashboard

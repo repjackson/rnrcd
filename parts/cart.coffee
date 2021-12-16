@@ -50,12 +50,16 @@ if Meteor.isClient
             Docs.update @_id,
                 $set:
                     status:'complete'
+    Template.cart_item.events
         'click .increase_amount': ->
             Docs.update @_id, 
                 $inc:amount:1
         'click .decrease_amount': ->
-            Docs.update @_id, 
-                $inc:amount:-1
+            if @amount is 1
+                Docs.remove @_id
+            else 
+                Docs.update @_id, 
+                    $inc:amount:-1
         
         
 if Meteor.isServer 

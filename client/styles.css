@@ -73,45 +73,45 @@ body {
 .white-text {
     color: white !important;
 }
-.red.button {
-    background-color:#DB2828 !important;
-}
-.orange.button {
-    background-color:#FE9A76 !important;
-}
-.yellow.button {
-    background-color:#FFD700 !important;
-}
-.olive.button {
-    background-color:#32CD32 !important;
-}
-.green.button {
-    background-color:#016936 !important;
-}
-.teal.button {
-    background-color: #008080 !important;
-}
-.blue.button , .blue.segment{
-    background-color: #0E6EB8 !important;
-}
-.violet.button {
-    background-color:#EE82EE !important;
-}
-.purple.button {
-    background-color:#B413EC !important;
-}
-.pink.button {
-    background-color: #FF1493 !important;
-}
-.brown.button {
-    background-color:#A52A2A !important;
-}
-.grey.button {
-    background-color: #A0A0A0 !important;
-}
-.black.button {
-    background-color:#000000 !important;
-}
+/*.red.button {*/
+/*    background-color:#DB2828 !important;*/
+/*}*/
+/*.orange.button {*/
+/*    background-color:#FE9A76 !important;*/
+/*}*/
+/*.yellow.button {*/
+/*    background-color:#FFD700 !important;*/
+/*}*/
+/*.olive.button {*/
+/*    background-color:#32CD32 !important;*/
+/*}*/
+/*.green.button {*/
+/*    background-color:#016936 !important;*/
+/*}*/
+/*.teal.button {*/
+/*    background-color: #008080 !important;*/
+/*}*/
+/*.blue.button , .blue.segment{*/
+/*    background-color: #0E6EB8 !important;*/
+/*}*/
+/*.violet.button {*/
+/*    background-color:#EE82EE !important;*/
+/*}*/
+/*.purple.button {*/
+/*    background-color:#B413EC !important;*/
+/*}*/
+/*.pink.button {*/
+/*    background-color: #FF1493 !important;*/
+/*}*/
+/*.brown.button {*/
+/*    background-color:#A52A2A !important;*/
+/*}*/
+/*.grey.button {*/
+/*    background-color: #A0A0A0 !important;*/
+/*}*/
+/*.black.button {*/
+/*    background-color:#000000 !important;*/
+/*}*/
 
 
 
@@ -288,12 +288,89 @@ img {
     /* padding-top: 5em !important; */
     /* box-shadow: 0 2px 2px 2px rgba(50, 50, 100, 0.1) !important; */
 /*}*/
-.button:hover {
-    border-radius: 12px !important;
-    transition: transform .25s; /* Animation */
-    transform: scale(1.05) !important; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-    box-shadow: inset 0px 0px 10px 10px rgba(250,250,250,0.5);
+.button {
+    transition: transform .25s !important; /* Animation */
 }
+.button:hover {
+    /*border-radius: 12px !important;*/
+    transform: scale(1.05) !important; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    /*box-shadow: inset 0px 0px 10px 10px rgba(250,250,250,0.5);*/
+}
+
+.flip {
+  position: absolute;
+  width: 160px;
+  height: 48px;
+  perspective: 500px;
+  top: 50%;
+  left: 50%;
+  margin: -24px 0 0 -80px;
+}
+.flip a {
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.flip a .front,
+.flip a .back {
+  margin: 0;
+  width: 160px;
+  height: 48px;
+  line-height: 48px;
+  position: absolute;
+  text-align: center;
+  letter-spacing: 0.4em;
+}
+.flip a .front {
+  background-color: #222;
+  color: #fff;
+  transform: rotateY(0) translateZ(24px);
+}
+.flip a .back {
+  background-color: rgba(255,255,255,0);
+  color: rgba(34,34,34,0);
+  transform: rotateX(90deg) translateZ(24px);
+  overflow: hidden;
+}
+.flip a .back:after {
+  content: '';
+  position: absolute;
+  top: -32%;
+  left: -10%;
+  width: 120%;
+  height: 50%;
+  background: #222;
+  transform: rotate(8deg);
+  transition: all 0.5s ease;
+  transition-delay: 0.15s;
+}
+.flip a:hover {
+  transform: translateZ(-24px) rotateX(-90deg);
+}
+.flip a:hover .front {
+  background: #000;
+  transition: all 0.8s ease;
+}
+.flip a:hover .back {
+  color: #222;
+  transition: color 0.4s linear;
+  background: #fff;
+}
+.flip a:hover .back:after {
+  transform: rotate(6deg) translate(100px, -18px);
+}
+
+
+
+
 /*.wallet:hover {*/
 /*    content:url("/wallet.gif");*/
 /*}*/
@@ -1156,33 +1233,7 @@ h1.ui.header{
 }
 
 
-.button:active {
-    -webkit-box-shadow:
-        0px 3px rgba(128,128,128,1),
-        0px 4px rgba(118,118,118,1),
-        0px 5px rgba(108,108,108,1),
-        0px 6px rgba(98,98,98,1),
-        0px 10px rgba(88,88,88,1),
-        0px 8px rgba(78,78,78,1),
-        0px 10px 2px 0px rgba(128,128,128,.6);
-}
 
-.button:active{
-    -webkit-transform: translate(0, 2px) !important; /* depth of button press */
-    transform: translate(0, 2px) !important; /* depth of button press */
-}
-
-
-
-.slider-header {
-  color: #fff;
-  padding: 10px;
-  font-size: 3em !important;
-}
-.slider-subheader {
-  color: #fff;
-  padding: 10px;
-}
 /* @font-face {
   font-family: imogen;
   src: url("/fonts/ImogenAgnes.ttf");

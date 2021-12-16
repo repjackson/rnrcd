@@ -30,7 +30,7 @@ Router.configure
 #     'user_orders'
 #     'user_food'
 #     'user_finance'
-#     'user_dashboard'
+#     'profile'
 #     'verify-email'
 #     'food_view'
 #   ]

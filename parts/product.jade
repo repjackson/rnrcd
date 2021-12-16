@@ -4,24 +4,20 @@ template(name='product_view')
         .ui.stackable.padded.grid
             .one.column.row
                 .column
+                    a.ui.basic.icon.button.fly_left(href="/shop")
+                        i.chevron.left.large.icon
+                        +i name='food-cart' cl='ui mini inline image'
+                        |shop
                     .ui.large.inline.header 
                         //- small viewing
                         | #{title}
                     +order_button
-            .three.column.row
-                .column
-                    div
-                    a.ui.basic.icon.button.fly_left(href="/shop")
-                        i.chevron.left.large.icon
-                        // i.large.food.icon
-                        +i name='food-cart' cl='ui mini inline image'
                     if currentUser.admin
                         a(href="/product/#{_id}/edit")
                             i.pencil.blue.large.link.circular.icon
-                    // a(href="{{c.url image_id}}" target="_window")
-                    // .four.wide.column
-                    img.ui.rounded.fluid.image.zoomer(src="{{c.url image_id}}")
+            .three.column.row
                 .column
+                    img.ui.rounded.fluid.image.zoomer(src="{{c.url image_id}}")
                     if image_id2
                         img.ui.rounded.image.zoomer(src="{{c.url image_id2}}")
                     if image_id3

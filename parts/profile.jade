@@ -37,59 +37,67 @@ template(name='profile')
                     //     i.globe.icon
                     //     |log out other clients
                     // if is_current_user
-                .twelve.wide.column.scrolling
-                    +user_dashboard
-
-
-template(name='user_dashboard')
-    +user_credit
-    .ui.three.stackable.cards
-        .ui.card
-            .content
-                .ui.header
-                    +i name='check' cl='ui avatar image'
-                    |orders
-                .ui.list 
-                    each user_orders
-                        .item #{when}
-        .ui.card
-            .content
-                a.header(href="/user/#{username}/subscriptions")
-                    +i name='clock' cl='ui avatar image'
-                    |subs
-                each user_subs
-                    .ui.header #{when}
-        .ui.card
-            .content
-                a.header(href="/user/#{username}/friends")
-                    +i name='groups' cl='ui avatar image'
-                    |friends
-        .ui.card
-            .content
-                a.header(href="/user/#{username}/giftcards")
-                    +i name='gift-card' cl='ui avatar image'
-                    |gift cards
-                each gift_cards
-                    .ui.header #{when}
-        .ui.card
-            .content
-                a.header(href="/user/#{username}/favorites")
-                    +i name='love' cl='ui avatar image'
-                    |favorites
-                each favorites
-                    .ui.header #{when}
-        .ui.card
-            .content
-                a.header(href="/user/#{username}/ingredients")
-                    +i name='ingredients' cl='ui avatar image'
-                    |ingredients
-                .ui.small.header 
-                    |liked ingredients
-                each liked_ingredients
-                    .ui.header #{when}
-                each disliked_ingredients
-                    |disliked ingredients
-                    .ui.header #{when}
+                .twelve.wide.column.scrollin
+                    +user_credit
+                    .ui.three.stackable.cards
+                        .ui.card
+                            .content
+                                .ui.header
+                                    +i name='check' cl='ui avatar image'
+                                    |orders
+                                .ui.list 
+                                    each user_orders
+                                        .item #{when}
+                        .ui.card
+                            .content
+                                a.header(href="/user/#{username}/subscriptions")
+                                    +i name='clock' cl='ui avatar image'
+                                    |subs
+                                each user_subs
+                                    .ui.header #{when}
+                        .ui.card
+                            +user_addresses
+                        .ui.card
+                            +user_deliveries
+                        .ui.card
+                            +user_pantry
+                        .ui.card
+                            .content
+                                a.header(href="/user/#{username}/friends")
+                                    +i name='groups' cl='ui avatar image'
+                                    |friends
+                        .ui.card
+                            .content
+                                a.header(href="/user/#{username}/giftcards")
+                                    +i name='gift-card' cl='ui avatar image'
+                                    |gift cards
+                                each gift_cards
+                                    .ui.header #{when}
+                        // .ui.card
+                        //     .content
+                        //         a.header(href="/user/#{username}/favorites")
+                        //             +i name='love' cl='ui avatar image'
+                        //             |favorites
+                        //         each favorites
+                        //             .ui.header #{when}
+                        .ui.card
+                            .content
+                                a.header(href="/user/#{username}/ingredients")
+                                    +i name='ingredients' cl='ui avatar image'
+                                    |ingredients
+                                if liked_ingredients
+                                    .ui.small.header
+                                        i.thumbs.up.grey.icon
+                                        |liked ingredients
+                                    each liked_ingredients
+                                        .item #{when}
+                                if disliked_ingredients
+                                    .ui.small.inline.header 
+                                        i.thumbs.down.grey.icon
+                                        |disliked ingredients
+                                    .ui.list
+                                        each disliked_ingredients
+                                            .item #{title}
                     
                     
                     
@@ -146,7 +154,6 @@ template(name='user_deliveries')
         |mark unavailable to deliver
     each user_deliveries
         .item #{when}
-    +map
         
 template(name='user_pantry')
     .ui.header 
@@ -163,45 +170,44 @@ template(name='user_pantry')
         
         
 template(name='user_credit')
-    .ui.stackable.one.column.padded.grid
+    .ui.segment
         if is_current_user
-            .column
-                .ui.inline.header
-                    +i name='cookie'
-                    |{{current_user.points}}
-                    |crumbs
-                +ibig name='cookie' cl='ui image earn_crumb pointer'
-                .ui.big.button.send_crumbs
-                    i.send.icon
-                    |send
-                a.ui.big.button(href="/transfers")
-                    i.exchange.icon
-                    |transfers
-                // .ui.inline.header 
-                //     // i.shield.icon
-                //     +i name='shield'
-                //     |admin
-                // .ui.big.icon.button.add_credit(title='add credit')
-                //     |+1
-                // // +number_edit key='credit' label='edit credit' min='0' step='1' max='1000' direct=true
-                // .ui.big.icon.button.remove_credit(title='remove credit')
-                //     |-1
-                +topup_button amount=10
-                +topup_button amount=20
-                +topup_button amount=100
-                // |includes 2% credit card processing fee
-                // .ui.action.input
-                //     input.deposit_amount(type='number' min='1' placeholder='deposit')
-                //     .ui.icon.button.add_credits   
-                //         i.right.chevron.icon
-                        
-                .ui.large.bulleted.list.smallscroll
-                    each topups
-                        .item 
-                            .content
-                                .header 
-                                    |$#{amount}
-                                .description 
-                                    |#{when} {{long_date _timestamp}}
-                                    //- if is_dev
-                                    +remove_button        
+            .ui.inline.header
+                +i name='cookie'
+                |{{current_user.points}}
+                |crumbs
+            +ibig name='cookie' cl='ui inline image earn_crumb pointer'
+            .ui.big.button.send_crumbs
+                i.send.icon
+                |send
+            // a.ui.big.button(href="/transfers")
+            //     i.exchange.icon
+            //     |transfers
+            // .ui.inline.header 
+            //     // i.shield.icon
+            //     +i name='shield'
+            //     |admin
+            // .ui.big.icon.button.add_credit(title='add credit')
+            //     |+1
+            // // +number_edit key='credit' label='edit credit' min='0' step='1' max='1000' direct=true
+            // .ui.big.icon.button.remove_credit(title='remove credit')
+            //     |-1
+            +topup_button amount=10
+            +topup_button amount=20
+            +topup_button amount=100
+            // |includes 2% credit card processing fee
+            // .ui.action.input
+            //     input.deposit_amount(type='number' min='1' placeholder='deposit')
+            //     .ui.icon.button.add_credits   
+            //         i.right.chevron.icon
+                    
+            .ui.large.bulleted.list.smallscroll
+                each topups
+                    .item 
+                        .content
+                            .header 
+                                |$#{amount}
+                            .description 
+                                |#{when} {{long_date _timestamp}}
+                                //- if is_dev
+                                +remove_button        

@@ -281,11 +281,11 @@ if Meteor.isClient
 
 
 
-    Template.user_dashboard.onCreated ->
+    Template.profile.onCreated ->
         # @autorun => Meteor.subscribe 'user_current_reservations', Router.current().params.username
-    Template.user_dashboard.helpers
+    Template.profile.helpers
 
-    Template.user_dashboard.events
+    Template.profile.events
             
             
 if Meteor.isServer

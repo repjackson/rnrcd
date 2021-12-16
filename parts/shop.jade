@@ -103,8 +103,9 @@ template(name='shop')
                         each product_docs
                             +product_card
             else 
-                .ui.center.aligned.segment
-                    i.massive.loading.food.icon
+                .ui.center.aligned.basic.segment
+                    // i.massive.loading.food.icon
+                    +i name='cookie' cl='spinning ui image'
 
 
 
@@ -146,5 +147,5 @@ template(name='product_card')
                 +i name='vegan-food' cl='ui mini inline image' title='vegan'
         .content    
             .ui.inline.header 
-                |#{price}
-            // i.big.link.cart.plus.green.icon.add_to_cart
+                |$#{price}
+            i.big.link.cart.plus.green.circular.icon.add_to_cart.zoomer(title='add to cart')
