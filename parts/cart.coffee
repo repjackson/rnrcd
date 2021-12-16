@@ -27,8 +27,9 @@ if Meteor.isClient
         @autorun => Meteor.subscribe 'doc', Router.current().params.doc_id, ->
 
 
-    Template.cart_edit.events 
-
+    Template.cart_item.events 
+        'click .remove_item': ->
+            Docs.remove @_id
 
     Template.checkout.onCreated ->
         @autorun => Meteor.subscribe 'doc', Router.current().params.doc_id, ->
