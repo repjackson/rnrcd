@@ -242,20 +242,20 @@ if Meteor.isClient
             #     cancelButtonText: 'cancel'
             # }).then((result) =>
             #     if result.value
-            Meteor.call 'order_product', @_id, (err, res)->
+            Meteor.call 'add_to_cart', @_id, (err, res)->
                 if err
                     Swal.fire(
                         'err'
                         'error'
                     )
                     console.log err
-                else
-                    Router.go "/order/#{res}/edit"
-                    # Swal.fire(
-                    #     'order and payment processed'
-                    #     ''
-                    #     'success'
-                    # )
+                # else
+                #     Router.go "/order/#{res}/edit"
+                #     # Swal.fire(
+                #     #     'order and payment processed'
+                #     #     ''
+                #     #     'success'
+                #     # )
         # )
 
 if Meteor.isServer

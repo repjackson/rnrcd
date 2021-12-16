@@ -5,15 +5,15 @@ template(name='shop')
                 +i name='food-cart'
                 // |#{product_docs.count}
                 |products
+                if currentUser.admin
+                    a.add_product(title='add product')
+                        i.plus.green.large.icon
             // .ui.icon.large.input
             //     if product_query
             //         i.remove.link.large.red.icon.clear_product_query.zoomer(title='clear search')
             //     else 
             //         i.search.icon
             //     input#product_search(type='text' placeholder='title...' value=product_query autocomplete='off')
-            if currentUser.admin
-                a.ui.icon.button.add_product(title='cook')
-                    i.plus.green.large.icon
                 
                 // // .ui.left.icon.search.input
                 // //     i.search.icon.refresh_tags
@@ -154,12 +154,12 @@ template(name='set_product_limit')
 
 template(name='product_card')
     .center.aligned.column.zoomer(class=product_card_class title=ingredients)
-        if rescued 
-            .ui.top.right.attached.blue.label(title='rescued')
-                i.search.icon
-        if local 
-            .ui.top.right.attached.corner.green.label(title='local')
-                i.marker.icon
+        // if rescued 
+        //     .ui.top.right.attached.blue.label(title='rescued')
+        //         i.search.icon
+        // if local 
+        //     .ui.top.right.attached.corner.green.label(title='local')
+        //         i.marker.icon
         a.zoomer.fly_right(href="/product/#{_id}") 
             img.ui.centered.rounded.image(src="{{c.url image_id width=400 height=300 crop='pad'}}")
         .content

@@ -33,7 +33,7 @@ template(name='nav')
             if currentUser
                 // a.icon.item(href="/cart" class="{{isActivePath '/cart'}}")
                 // if cart_items.count
-                a.icon.item.toggle_cartbar
+                a.icon.item.toggle_cartbar.fly_right
                     // i.large.cart.icon
                     strong #{cart_items.count}
                     |$#{my_cart_subtotal}
@@ -42,13 +42,13 @@ template(name='nav')
                     span.mobile.hidden
                         each cart_items
                             img.ui.avatar.image(src="{{c.url image_id width=200 height=200 gravity='face' crop='fill'}}")
-                a.item.toggle_topbar(title='alerts')
+                a.item.toggle_topbar.fly_right(title='alerts')
                     // i.wallet.icon
                     .ui.avatar.image.bell
                         +i name='notification'
-                if currentUser.admin
-                    a.item.close_bars(href="/admin" title='admin')
-                        +i name='shield'
+                // if currentUser.admin
+                //     a.item.close_bars.fly_right(href="/admin" title='admin')
+                //         +i name='shield'
                 // a.item(href='/user/#{currentUser.username}/credit' class="{{isActiveRoute 'user_credit'}}" title='current wallet balance')
                 // a.item.toggle_walletbar(title='credit')
                 //     // i.wallet.icon
@@ -56,10 +56,10 @@ template(name='nav')
                 //         +i name='wallet'
                 //     strong ${{int currentUser.credit}}
                 //     // i.cart.icon
-                a.item(href="/user/#{currentUser.username}/credit" class="{{isActiveRoute regex='user_credit'}}" title='your credit')
+                a.item.fly_right(href="/user/#{currentUser.username}/credit" class="{{isActiveRoute regex='user_credit'}}" title='your credit')
                     strong #{currentUser.points}
                     +i name='cookie'
-                a.item.close_bars(href="/user/#{currentUser.username}" class="{{isActiveRoute 'profile'}}"  title=user_nav_button_title)
+                a.item.close_bars.fly_right(href="/user/#{currentUser.username}" class="{{isActiveRoute 'profile'}}"  title=user_nav_button_title)
                     if currentUser.image_id
                         img.ui.avatar.image(src="{{c.url currentUser.image_id width=200 height=200 gravity='face' crop='fill'}}")
                     else
@@ -76,11 +76,12 @@ template(name='nav')
             unless currentUser
                 if subs_ready
                     a.item(href='/login' title='login') 
-                        i.sign.in.large.icon
-                        // +i name='internal'
+                        // i.sign.in.large.icon
+                        +i name='internal'
                         |login
                 else 
-                    i.food.loading.icon
+                    +i name='cookie' cl='spinning ui image'
+                    // i.food.loading.icon
         
                 
 

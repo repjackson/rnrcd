@@ -247,38 +247,38 @@ if Meteor.isClient
 if Meteor.isServer
     Meteor.methods
         add_to_cart: (product_id)->
-            # existing_cart_item_with_product = 
-            #     Docs.findOne 
-            #         model:'cart_item'
-            #         product_id:product_id
-            # if existing_cart_item_with_product
-            #     Docs.update existing_cart_item_with_product._id,
-            #         $inc:amount:1
-            # else 
-            product = Docs.findOne product_id
-            current_order = 
+            existing_cart_item_with_product = 
                 Docs.findOne 
-                    model:'order'
-                    _author_id:Meteor.userId()
-                    status:'cart'
-            if current_order
-                order_id = current_order._id
-            else
-                order_id = 
-                    Docs.insert 
-                        model:'order'
-                        status:'cart'
-            new_cart_doc_id = 
-                Docs.insert 
                     model:'cart_item'
-                    status:'cart'
-                    product_id: product_id
-                    product_price:product.price_usd
-                    product_title:product.title
-                    image_id:product.image_id
-                    order_id:order_id
-            console.log new_cart_doc_id
-            
+                    product_id:product_id
+            if existing_cart_item_with_product
+                Docs.update existing_cart_item_with_product._id,
+                    $inc:amount:1
+            else 
+                product = Docs.findOne product_id
+                current_order = 
+                    Docs.findOne 
+                        model:'order'
+                        _author_id:Meteor.userId()
+                        status:'cart'
+                if current_order
+                    order_id = current_order._id
+                else
+                    order_id = 
+                        Docs.insert 
+                            model:'order'
+                            status:'cart'
+                new_cart_doc_id = 
+                    Docs.insert 
+                        model:'cart_item'
+                        status:'cart'
+                        product_id: product_id
+                        product_price:product.price_usd
+                        product_title:product.title
+                        image_id:product.image_id
+                        order_id:order_id
+                console.log new_cart_doc_id
+                
                     
     Meteor.publish 'product_results', (
         picked_ingredients=[]
