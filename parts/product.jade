@@ -211,15 +211,8 @@ template(name='order_button')
     // if servings_left
     .ui.green.large.button.order_product
         i.cart.plus.large.icon
-        strong ${{fixed price_usd}}
-        // |order #{serving_unit}
-        // small order for
-        // strong #{price_franc}f
-    // else 
-    //     .ui.grey.header sold out
-        //- .ui.teal.large.button.join_waitlist
-        //-     i.clock.large.icon
-        //-     |join wait list
+        |add to cart
+        strong $#{price}
 
 
 
@@ -256,7 +249,7 @@ template(name='product_edit')
                     +image_edit key='image_id3' label='alt2 image' direct=true
                     +link_edit key='product_link' label='old site link' direct=true
                     // div
-                    // +float_edit key='price_usd' label='$ price' direct=true
+                    // +float_edit key='price' label='$ price' direct=true
                     +boolean_edit key='gluten_free' label='gluten free' direct=true icon='no-gluten'
                     +boolean_edit key='paleo' label='paleo' direct=true icon='caveman'
                     +boolean_edit key='vegetarian' label='vegetarian' direct=true icon='vegetarian-mark'

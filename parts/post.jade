@@ -24,7 +24,7 @@ template(name='posts')
                         strong #{current_post_sort_label}
                         i.dropdown.icon
                         .menu
-                            +set_post_sort_key key='price_usd' label='price' icon='money'
+                            +set_post_sort_key key='price' label='price' icon='money'
                             //- +set_post_sort_key key='_timestamp' label='added' icon='clock'
                             +set_post_sort_key key='comment_count' label='comment count' icon='chat'
                             +set_post_sort_key key='views' label='views' icon='eye'

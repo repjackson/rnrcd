@@ -86,15 +86,15 @@ template(name='cart_edit')
 template(name='my_cart')
     .ui.stackable.padded.grid
         .sixteen.wide.column
-            a.ui.header(href="/cart")
+            a.ui.inline.header(href="/cart")
                 +i name='shopping-cart'
                 |cart
             // a.ui.fluid.basic.icon.button(href="/shop")
             //     // i.chevron.left.icon
             //     +i name='food-cart'
             if cart_items.count
-                .ui.header subtotal: $#{my_cart_subtotal}
-                a.ui.big.fluid.button.checkout_cart(href="/checkout")
+                .ui.basic.large.label subtotal: $#{my_cart_subtotal}
+                a.ui.big.basic.circular.fluid.button.checkout_cart(href="/checkout")
                     i.large.send.icon
                     |checkout
             each cart_items
@@ -112,10 +112,11 @@ template(name='cart_item')
             // | #{amount}
             strong #{product_title}
         small added #{when}
-        // .ui.basic.icon.button.decrease_amount
-        //     i.minus.icon
-        // .ui.basic.icon.button.increase_amount
-        //     i.plus.icon
+        .ui.basic.icon.button.decrease_amount
+            i.minus.icon
+        .ui.large.basic.label #{amount}
+        .ui.basic.icon.button.increase_amount
+            i.plus.icon
         .ui.basic.icon.button.remove_item
             i.remove.red.icon
         // if is_admin

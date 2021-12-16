@@ -235,7 +235,7 @@ if Meteor.isClient
             # Swal.fire({
             #     # title: "confirm buy #{serving_text}"
             #     title: "confirm order?"
-            #     text: "this will charge you #{@price_usd}"
+            #     text: "this will charge you #{@price}"
             #     icon: 'question'
             #     showCancelButton: true,
             #     confirmButtonText: 'confirm'

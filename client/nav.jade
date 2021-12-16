@@ -15,7 +15,7 @@ template(name='nav')
         a.header.item.zoomer.mobile.hidden(href='/' class="{{isActivePath '/'}}" title='EAT RESPONIBLY!!!')
             // +i name='food'
             img(src="https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Screen_Shot_2021-05-14_at_12.58.25_PM_360x.png?v=1621018741")
-            |Rock 'n Roll Cookie Dough
+            strong Rock 'n Roll Cookie Dough
         a.item.zoomer.close_bars(href='/shop' class="{{isActivePath '/shop'}}")
             +i name='food-cart'
             // +i name='food'
@@ -35,7 +35,7 @@ template(name='nav')
                 // if cart_items.count
                 a.icon.item.toggle_cartbar.fly_right
                     // i.large.cart.icon
-                    strong #{cart_items.count}
+                    strong x#{cart_count_total}
                     |$#{my_cart_subtotal}
                     .ui.avatar.image.cart
                         +i name='shopping-cart'

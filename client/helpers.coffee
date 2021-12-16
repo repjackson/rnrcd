@@ -43,25 +43,39 @@ Template.registerHelper 'cart_subtotal', () ->
     if store_session_document.cart_product_ids
         subtotal = 0
         for product in Docs.find(_id:$in:store_session_document.cart_product_ids).fetch()
-            if product.price_usd
-                subtotal += product.price_usd
+            if product.price
+                subtotal += product.price
                 # console.log 'product', product
         subtotal
     
-# Template.registerHelper 'my_cart_subtotal', () ->
+Template.registerHelper 'my_cart_subtotal', () ->
+    subtotal = 0
+    for item in Docs.find(model:'cart_item',_author_id:Meteor.userId(),status:'cart').fetch()
+        # product = Docs.findOne(item.product_id)
+        # console.log product
+        subtotal += item.product_price*item.amount
+        # if product
+        #     if product.price
+        # if product.price
+        #     console.log product.price
+            # console.log 'product', product
+    # console.log subtotal
+    subtotal.toFixed(2)
     
-#     subtotal = 0
-#     for item in Docs.find(model:'cart_item',_author_id:Meteor.userId(),status:'cart').fetch()
-#         # product = Docs.findOne(item.product_id)
-#         # console.log product
-#         subtotal += item.product_price
-#         # if product
-#         #     if product.price_usd
-#         # if product.price_usd
-#         #     console.log product.price_usd
-#             # console.log 'product', product
-#     # console.log subtotal
-#     subtotal.toFixed(2)
+    
+Template.registerHelper 'cart_count_total', () ->
+    count_total = 0
+    for item in Docs.find(model:'cart_item',_author_id:Meteor.userId(),status:'cart').fetch()
+        # product = Docs.findOne(item.product_id)
+        # console.log product
+        count_total += item.amount
+        # if product
+        #     if product.price
+        # if product.price
+        #     console.log product.price
+            # console.log 'product', product
+    console.log count_total
+    count_total
     
     
     

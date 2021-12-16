@@ -273,10 +273,11 @@ if Meteor.isServer
                         model:'cart_item'
                         status:'cart'
                         product_id: product_id
-                        product_price:product.price_usd
+                        product_price:product.price
                         product_title:product.title
                         image_id:product.image_id
                         order_id:order_id
+                        amount:1
                 console.log new_cart_doc_id
                 
                     
@@ -336,7 +337,7 @@ if Meteor.isServer
                 image_id:1
                 ingredients:1
                 model:1
-                price_usd:1
+                price:1
                 vegan:1
                 local:1
                 gluten_free:1
