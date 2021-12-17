@@ -50,6 +50,10 @@ if Meteor.isClient
             Docs.update @_id,
                 $set:
                     status:'complete'
+    Template.side_cart.events
+        'click .checkout_cart': ->
+            $('.ui.sidebar.cartbar').sidebar('hide')
+
     Template.cart_item.events
         'click .increase_amount': ->
             Docs.update @_id, 

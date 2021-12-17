@@ -41,6 +41,8 @@ template(name='nav')
                         +i name='shopping-cart'
                     span.mobile.hidden
                         each cart_items
+                            if amount
+                                |x#{amount}
                             img.ui.avatar.image(src="{{c.url image_id width=200 height=200 gravity='face' crop='fill'}}")
                 a.item.toggle_topbar.fly_right(title='alerts')
                     // i.wallet.icon
@@ -135,8 +137,8 @@ template(name='recent_alert')
             
             
 template(name='cartbar')
-    .ui.right.wide.sidebar.cartbar
-        +my_cart
+    .ui.right.sidebar.cartbar
+        +side_cart
         
 template(name='walletbar')
     .ui.right.sidebar.walletbar
