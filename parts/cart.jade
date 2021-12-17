@@ -172,9 +172,9 @@ template(name='checkout')
         .ui.stackable.padded.two.column.grid
             .column
                 .ui.header
-                    i.cart.icon
+                    +i name='checkout'
                     |checkout
-                .ui.large.list.scrolling
+                .ui.large.list.scrollin
                     each cart_items
                         .item
                             // .image

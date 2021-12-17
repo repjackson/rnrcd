@@ -8,14 +8,15 @@ template(name='nav')
             a.icon.item.toggle_leftbar.no_blink
                 // .ui.avatar.image.leftmenu
                 .ui.avatar.image
-                    .mobile.hidden
-                        // i.large.bars.icon
-                        +i name='menu--v1' cl='leftmenu'
-                    img.ui.avatar.image.mobile.only.leftmenu(src="/android-chrome-192x192.png")
-        a.header.item.zoomer.mobile.hidden(href='/' class="{{isActivePath '/'}}" title='EAT RESPONIBLY!!!')
+                    // .mobile.hidden
+                    // i.large.bars.icon
+                    +i name='menu--v1' cl='leftmenu'
+                    // img.ui.avatar.image.mobile.only.leftmenu(src="/android-chrome-192x192.png")
+        a.header.item.zoomer(href='/' class="{{isActivePath '/'}}" title='EAT RESPONIBLY!!!')
             // +i name='food'
             img(src="https://cdn.shopify.com/s/files/1/0530/4048/0439/files/Screen_Shot_2021-05-14_at_12.58.25_PM_360x.png?v=1621018741")
-            strong Rock 'n Roll Cookie Dough
+            strong.mobile.hidden Rock 'n Roll Cookie Dough
+            // strong.mobile.only R'nR Cookie Dough
         a.item.zoomer.close_bars(href='/shop' class="{{isActivePath '/shop'}}")
             +i name='food-cart'
             // +i name='food'
@@ -199,7 +200,7 @@ template(name='right_sidebar')
 
 
 template(name='left_sidebar')
-    .ui.left.sidebar.vertical.menu.smallscroll
+    .ui.left.sidebar.vertical.borderless.menu
         // a.item.toggle_leftbar.no_blink(href="/" class="{{isActiveRoute '/'}}")
         //     img.ui.avatar.compact.image(src="{{c.url 'one_logo' height=200 width=200 gravity='face' crop='fill'}}")
         //     |One
@@ -220,6 +221,12 @@ template(name='left_sidebar')
         a.item.toggle_leftbar(href='/shop' class="{{isActivePath '/shop'}}" title='shop')
             +i name='food-cart'
             | #{product_count} products
+        a.item.toggle_leftbar(href='/shop/kings' class="{{isActivePath '/shop'}}" title='shop')
+            +i name='crown'
+            | #{product_count} The Kings: The Classics
+        a.item.toggle_leftbar(href="/shop/queens'" class="{{isActivePath '/shop'}}" title='shop')
+            +i name='queen-uk'
+            | #{product_count} The Queens: Fruit Cookies
         a.item.toggle_leftbar(href='/ingredients' class="{{isActivePath '/ingredients'}}" title='shop')
             +i name='ingredients'
             | #{ingredient_count} ingredients
