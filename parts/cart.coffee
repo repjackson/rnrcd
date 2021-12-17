@@ -83,6 +83,11 @@ if Meteor.isServer
             model:'cart_item'
             cart_id:cart_id
 
+    Meteor.publish 'current_order', ()->
+        Docs.find
+            model:'order'
+            _author_id:Meteor.userId()
+
 
 if Meteor.isClient
     Router.route '/carts', (->

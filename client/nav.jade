@@ -33,17 +33,20 @@ template(name='nav')
             if currentUser
                 // a.icon.item(href="/cart" class="{{isActivePath '/cart'}}")
                 // if cart_items.count
-                a.icon.item.toggle_cartbar.fly_right
-                    // i.large.cart.icon
-                    strong x#{cart_count_total}
-                    |$#{my_cart_subtotal}
-                    .ui.avatar.image.cart
-                        +i name='shopping-cart'
-                    span.mobile.hidden
-                        each cart_items
-                            if amount
-                                |x#{amount}
-                            img.ui.avatar.image(src="{{c.url image_id width=200 height=200 gravity='face' crop='fill'}}")
+                if cart_items.count
+                    a.icon.item.toggle_cartbar.fly_right
+                        // i.large.cart.icon
+                        if cart_count_total
+                            strong x#{cart_count_total}
+                        if cart_items.count
+                            |$#{my_cart_subtotal}
+                        .ui.avatar.image.cart
+                            +i name='shopping-cart'
+                        span.mobile.hidden
+                            each cart_items
+                                if amount
+                                    |x#{amount}
+                                img.ui.avatar.image(src="{{c.url image_id width=200 height=200 gravity='face' crop='fill'}}")
                 a.item.toggle_topbar.fly_right(title='alerts')
                     // i.wallet.icon
                     .ui.avatar.image.bell

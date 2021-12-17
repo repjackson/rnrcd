@@ -80,15 +80,18 @@ if Meteor.isClient
             # , 240
         
         'click .add_to_cart': ->
-            Meteor.call 'add_to_cart', @_id, =>
-                $('body').toast(
-                    showIcon: 'cart plus'
-                    message: "#{@title} added"
-                    showProgress: 'bottom'
-                    class: 'success'
-                    displayTime: '3000',
-                    position: "bottom right"
-                )
+            if Meteor.user()
+                Meteor.call 'add_to_cart', @_id, =>
+                    $('body').toast(
+                        showIcon: 'cart plus'
+                        message: "#{@title} added"
+                        showProgress: 'bottom'
+                        class: 'success'
+                        displayTime: '3000',
+                        position: "bottom right"
+                    )
+            else 
+                Router.go "/login"
 
 
     Template.product_subscriptions.events
@@ -242,20 +245,25 @@ if Meteor.isClient
             #     cancelButtonText: 'cancel'
             # }).then((result) =>
             #     if result.value
-            Meteor.call 'add_to_cart', @_id, (err, res)->
-                if err
-                    Swal.fire(
-                        'err'
-                        'error'
-                    )
-                    console.log err
-                # else
-                #     Router.go "/order/#{res}/edit"
-                #     # Swal.fire(
-                #     #     'order and payment processed'
-                #     #     ''
-                #     #     'success'
-                #     # )
+            if Meteor.user()
+                Meteor.call 'add_to_cart', @_id, (err, res)->
+                    if err
+                        Swal.fire(
+                            'err'
+                            'error'
+                        )
+                        console.log err
+                    else
+                        # Router.go "/order/#{res}/edit"
+                        Swal.fire(
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'added to cart',
+                            showConfirmButton: false,
+                            timer: 1500
+                        )
+            else 
+                Router.go "/login"
         # )
 
 if Meteor.isServer

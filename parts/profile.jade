@@ -52,15 +52,18 @@ template(name='profile')
                             .content
                                 a.header(href="/user/#{username}/subscriptions")
                                     +i name='clock' cl='ui avatar image'
-                                    |subs
+                                    |subscriptions
                                 each user_subs
                                     .ui.header #{when}
                         .ui.card
-                            +user_addresses
+                            .content
+                                +user_addresses
                         .ui.card
-                            +user_deliveries
+                            .content
+                                +user_deliveries
                         .ui.card
-                            +user_pantry
+                            .content
+                                +user_pantry
                         .ui.card
                             .content
                                 a.header(href="/user/#{username}/friends")

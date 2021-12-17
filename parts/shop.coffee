@@ -224,15 +224,19 @@ if Meteor.isClient
     Template.product_card.events
         'click .add_to_cart': (e,t)->
             $(e.currentTarget).closest('.card').transition('bounce',500)
-            Meteor.call 'add_to_cart', @_id, =>
-                $('body').toast(
-                    showIcon: 'cart plus'
-                    message: "#{@title} added"
-                    # showProgress: 'bottom'
-                    class: 'success'
-                    # displayTime: 'auto',
-                    position: "bottom center"
-                )
+            if Meteor.user()
+                Meteor.call 'add_to_cart', @_id, =>
+                    $('body').toast(
+                        showIcon: 'cart plus'
+                        message: "#{@title} added"
+                        # showProgress: 'bottom'
+                        class: 'success'
+                        # displayTime: 'auto',
+                        position: "bottom center"
+                    )
+            else
+                Router.go "/login"
+                
 
 
     # Template.set_sort_key.events

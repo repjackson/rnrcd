@@ -169,7 +169,7 @@ template(name='cart_item')
         
 template(name='checkout')
     with current_order
-        .ui.stackable.padded.three.column.grid
+        .ui.stackable.padded.two.column.grid
             .column
                 .ui.header
                     i.cart.icon
@@ -193,9 +193,8 @@ template(name='checkout')
                 .ui.header 
                     +i name='receipt'
                     |subtotal: $#{my_cart_subtotal}
-            .column
-                +delivery_section
                 +location_section
+                +delivery_section
             .column
                 +payment_section
                 +boolean_edit key='receive_notifications' label='check this box to receive your vital reminder texts and emails (optional)' direct=true
@@ -223,12 +222,16 @@ template(name='location_section')
         +boolean_edit key='use_new_address' label='use new address' direct=true
         if use_new_address
             .ui.input
+                label street
                 input(type='text' placeholder='street')
             .ui.input
+                label city
                 input(type='text' placeholder='city')
             .ui.input
+                label state
                 input(type='text' placeholder='state')
             .ui.input
+                label zip code
                 input(type='number' placeholder='zip code')
         div
         // .ui.button.use_profile_address
