@@ -20,8 +20,8 @@
     background-attachment: fixed !important;
     position: absolute !important;
     max-height: 100% !important;
-     max-height: 1000px !important; 
-     top:0px; 
+    /*max-height: 1000px !important; */
+    /*top:0px; */
     filter: invert(1);
     opacity: 0.1;
     -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.3)), to(rgba(0,0,0,0)));
