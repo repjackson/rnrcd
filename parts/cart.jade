@@ -125,49 +125,49 @@ template(name='cart_item')
         
         
 template(name='checkout')
-    with current_doc
-        .ui.stackable.padded.three.column.grid
-            .column
-                .ui.header
-                    i.cart.icon
-                    |checkout
-                .ui.large.list.scrolling
-                    each cart_items
-                        .item
-                            // .image
-                            img.ui.tiny.inline.rounded.image(src="{{c.url product_image_id width=400 height=400 crop='pad'}}")
-                            .content
-                                a.header(href="/product/#{product_id}") $#{product_price} #{product_title}
-                                .description
-                                    small added #{when}
-                                    .ui.basic.icon.button.decrease_amount
-                                        i.minus.icon
-                                    .ui.inline.header #{amount}
-                                    .ui.basic.icon.button.increase_amount
-                                        i.plus.icon
-                                    .ui.basic.icon.button.remove_item
-                                        i.remove.red.icon
-                                    // if is_admin
-                                    //     +print_this
-                .ui.header 
-                    +i name='receipt'
-                    |subtotal: $#{my_cart_subtotal}
-            .column
-                +delivery_section
-                +location_section
-            .column
-                +payment_section
-                +boolean_edit key='receive_notifications' label='check this box to receive your vital reminder texts and emails (optional)' direct=true
-                +boolean_edit key='has_read_tos' label=' I have read and agree to the website terms and conditions' direct=true
-                if has_read_tos
-                    .ui.big.fluid.green.button.submit_order
-                        i.large.send.icon
-                        |submit
-                else 
-                    .ui.big.fluid.green.disabled.button
-                        i.large.send.icon
-                        |submit (must agree to terms of service)
-    
+    // with current_doc
+    .ui.stackable.padded.three.column.grid
+        .column
+            .ui.header
+                i.cart.icon
+                |checkout
+            .ui.large.list.scrolling
+                each cart_items
+                    .item
+                        // .image
+                        img.ui.tiny.inline.rounded.image(src="{{c.url product_image_id width=400 height=400 crop='pad'}}")
+                        .content
+                            a.header(href="/product/#{product_id}") $#{product_price} #{product_title}
+                            .description
+                                small added #{when}
+                                .ui.basic.icon.button.decrease_amount
+                                    i.minus.icon
+                                .ui.inline.header #{amount}
+                                .ui.basic.icon.button.increase_amount
+                                    i.plus.icon
+                                .ui.basic.icon.button.remove_item
+                                    i.remove.red.icon
+                                // if is_admin
+                                //     +print_this
+            .ui.header 
+                +i name='receipt'
+                |subtotal: $#{my_cart_subtotal}
+        .column
+            +delivery_section
+            +location_section
+        .column
+            +payment_section
+            +boolean_edit key='receive_notifications' label='check this box to receive your vital reminder texts and emails (optional)' direct=true
+            +boolean_edit key='has_read_tos' label=' I have read and agree to the website terms and conditions' direct=true
+            if has_read_tos
+                .ui.big.fluid.green.button.submit_order
+                    i.large.send.icon
+                    |submit
+            else 
+                .ui.big.fluid.green.disabled.button
+                    i.large.send.icon
+                    |submit (must agree to terms of service)
+
     
 template(name='location_section')
     .ui.basic.segment
