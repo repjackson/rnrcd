@@ -4,6 +4,11 @@ if Meteor.isClient
         @render 'shop'
         ), name:'shop'
 
+    Router.route '/shop/:filter', (->
+        @layout 'layout'
+        @render 'shop'
+        ), name:'shop_filtered'
+
 
     Template.shop.onCreated ->
         # console.log papa

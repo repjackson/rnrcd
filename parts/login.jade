@@ -77,7 +77,13 @@ template(name='register')
                         |register
                     // // .ui.small.header username "#{username}" found
                 .ui.horizontal.divider or
+                a.ui.fluid.basic.button.generate_user
+                    // i.right.chevron.icon
+                    +i name='lightning' cl='ui avatar image'
+                    |generate user
+                .ui.horizontal.divider or
                 a.ui.fluid.basic.button(href='/login') 
                     // i.right.chevron.icon
                     +i name='internal' cl='ui avatar image'
                     |login
+                    

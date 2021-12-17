@@ -1,6 +1,6 @@
 stripe = require('stripe')('sk_test_5103F9t2l80WEvLLPcQfRPWGFslvo4htyZRCjRQ4YQ8DnRO0Qp18WNWRw7KSOxX9N0f45WU0eYeGXpkAx9MnXkaa700I9qwX0HQ');
 Meteor.methods
-  stripe: ()=>
+  stripe_checkout: ()=>
     # console.log 'stripe', stripe
     # paymentIntent = stripe.paymentIntents.create({
     #   amount: 1000,
@@ -27,7 +27,7 @@ Meteor.methods
     #     },
     #   },
     console.log session
-    
+    session
 
 
 Meteor.methods

@@ -28,8 +28,6 @@ head
     script(src='https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js')
     script(src='https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js')
     
-
-    
     script(src="https://cdn.jsdelivr.net/npm/sweetalert2@9")
     
     script(src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js")
@@ -60,12 +58,12 @@ template(name='full')
 template(name='layout')
     // img.ui.fluid.image.(src="{{c.url 'cafe'}}")
     +nav
-    #man.ui.bottom.attached.pushable.segment
+    .ui.bottom.attached.pushable.segment.scrollin
         +topbar
         +left_sidebar
         +right_sidebar
         +cartbar
-        +walletbar
+        // +walletbar
         #ain_area.global_conainer.pusher
             +yield
     // +footer

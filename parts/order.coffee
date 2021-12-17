@@ -112,7 +112,9 @@ if Meteor.isClient
 
     Template.checkout.events
         'click .submit_order': ->
-            Meteor.call 'stripe', ->
+            Meteor.call 'stripe_checkout', (session)->
+                console.log session
+                
     Template.order.helpers
         can_order: ->
             # if StripeCheckout

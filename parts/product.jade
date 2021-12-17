@@ -52,7 +52,7 @@ template(name='product_view')
                     +link_view key='external_link' label='external link' icon='globe' direct=true
                     +comments
                     // +product_orders
-                .four.wide.column
+                .column
                     // .ui.segment
                     //     +product_inventory
                     .ui.list
@@ -63,11 +63,11 @@ template(name='product_view')
                         .item expected inventory
                         .item query params: #{query_params}
                     i.refresh.large.link.icon.calc_stats(title='refresh_stats')
-                .four.wide.column
+                .column
                     +product_reviews
-                .five.wide.column
+                .column
                     +product_orders
-                .five.wide.column
+                .column
                     +product_subscriptions
                     .ui.header 
                         i.fork.icon
