@@ -163,14 +163,6 @@ body {
 .spacer{
     height:10px !important;
 }
-.spin_hover:hover {
-    animation-name: spin;
-    animation-duration: 5000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-
 .filter_row {
     padding: 0 !important;
     margin: 0 !important;
@@ -221,9 +213,6 @@ body {
 .ui.segment {
     /*border-radius:10px !important;*/
 }
-.card {
-    border-radius:20px !important;
-}
 /* .menu > .item:hover { */
     /* filter: drop-shadow(0px 0px 5px rgba(100,100,100,.9)) !important; */
 /* } */
@@ -261,9 +250,6 @@ img {
     transition: all .25s ease !important;
 } */
 
-.card {
-    /* border-radius:10px !important; */
-}
 
 /*.image:not(.flat), img {*/
 img {
@@ -289,86 +275,13 @@ img {
     /* box-shadow: 0 2px 2px 2px rgba(50, 50, 100, 0.1) !important; */
 /*}*/
 .button {
-    transition: transform .25s !important; /* Animation */
+    transition: transform .25s !important;
 }
 .button:hover {
     /*border-radius: 12px !important;*/
     transform: scale(1.05) !important; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     /*box-shadow: inset 0px 0px 10px 10px rgba(250,250,250,0.5);*/
 }
-
-.flip {
-  position: absolute;
-  width: 160px;
-  height: 48px;
-  perspective: 500px;
-  top: 50%;
-  left: 50%;
-  margin: -24px 0 0 -80px;
-}
-.flip a {
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  transform: translateZ(-25px);
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-.flip a .front,
-.flip a .back {
-  margin: 0;
-  width: 160px;
-  height: 48px;
-  line-height: 48px;
-  position: absolute;
-  text-align: center;
-  letter-spacing: 0.4em;
-}
-.flip a .front {
-  background-color: #222;
-  color: #fff;
-  transform: rotateY(0) translateZ(24px);
-}
-.flip a .back {
-  background-color: rgba(255,255,255,0);
-  color: rgba(34,34,34,0);
-  transform: rotateX(90deg) translateZ(24px);
-  overflow: hidden;
-}
-.flip a .back:after {
-  content: '';
-  position: absolute;
-  top: -32%;
-  left: -10%;
-  width: 120%;
-  height: 50%;
-  background: #222;
-  transform: rotate(8deg);
-  transition: all 0.5s ease;
-  transition-delay: 0.15s;
-}
-.flip a:hover {
-  transform: translateZ(-24px) rotateX(-90deg);
-}
-.flip a:hover .front {
-  background: #000;
-  transition: all 0.8s ease;
-}
-.flip a:hover .back {
-  color: #222;
-  transition: color 0.4s linear;
-  background: #fff;
-}
-.flip a:hover .back:after {
-  transform: rotate(6deg) translate(100px, -18px);
-}
-
-
 
 
 /*.wallet:hover {*/
@@ -674,14 +587,15 @@ input.username_search{
     transform: translate(0, 5px) !important; /* depth of button press */
 }
 
-.item{
-    transition:transform .25s !important;
-}
-.item:active{
-    -webkit-transform: translate(0, 5px) !important; /* depth of button press */
-    transform: translate(0, 5px) !important; /* depth of button press */
+/*.item{*/
+    /*transition:transform .25s !important;*/
+/*}*/
+/*.item:active{*/
+    /*-webkit-transform: translate(0, 5px) !important; /* depth of button press 
+    transform: translate(0, 5px) !important; /* depth of button press 
 }
 
+*/
 
 
 
@@ -702,11 +616,6 @@ input.username_search{
 }
 
 
-.button, .selector, .card, p, .header, .item, .image, .fade {
-    animation: fadein .5s;
-     /*-webkit-transition: opacity 2s ease-out; */
-    /* animation: fadeout .5s; */
-}
 .global_container {
     padding-left:5px !important;
 }
@@ -728,17 +637,6 @@ input.username_search{
         transform:rotate(360deg);
     }
 }
-
-@keyframes fadein {
-  from { opacity: 0}
-  to   { opacity: 1}
-}
-
-@keyframes fadeout {
-  from { opacity: 1}
-  to   { opacity: 0}
-}
-
 
 .inline {
   display:inline !important;
@@ -778,29 +676,12 @@ h1.ui.header{
   font-family: 'Ubuntu', sans-serif !important;
 } */
 
-.label {
-  animation: fadein .25s;
-}
-.segment{
-  animation: fadein .5s;
-}
-
-.icon {
-  animation: fadein .5s;
-  /*filter: invert(.9) !important;*/
-}
 
 @keyframes fadein {
   from { opacity: 0}
   to   { opacity: 1}
 }
 
-#main {
-  animation: fadein .5s;
-}
-.result_column {
-  animation: fadein .5s;
-}
 
 @media screen and (max-width: 1100px) {
   .overlay-text {

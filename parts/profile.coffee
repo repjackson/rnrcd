@@ -174,24 +174,23 @@ if Meteor.isClient
 
     Template.user_credit.events
         'click .earn_crumb': (e,t)->
-            Swal.fire(
-                position: 'bottom-end',
-                # icon: 'success',
-                title: 'crumb earned',
-                showConfirmButton: false,
-                timer: 1000
-            )
-            
-            # $('body').toast(
-            #     # showIcon: 'heart'
-            #     message: "crumb earned"
-            #     # showProgress: 'bottom'
-            #     class: 'success'
-            #     # displayTime: 'auto',
-            #     showProgress: 'bottom',
-            #     classProgress: 'red'
-            #     position: "bottom right"
+            # Swal.fire(
+            #     position: 'bottom-end',
+            #     # icon: 'success',
+            #     title: 'crumb earned',
+            #     showConfirmButton: false,
+            #     timer: 1000
             # )
+            
+            $('body').toast(
+                # showIcon: 'heart'
+                message: "crumb earned"
+                class: 'success'
+                displayTime: 300,
+                # showProgress: 'bottom',
+                # classProgress: 'red'
+                # position: "bottom right"
+            )
             Meteor.users.update Meteor.userId(),
                 $inc: 
                     credit:.01

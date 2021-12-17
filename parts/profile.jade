@@ -1,107 +1,105 @@
 template(name='profile')
     img.ui.fluid.image.checkin_banner(src="{{c.url 'cafe'}}")
     with current_user
-        .ui.stackable.padded.grid
-            .row
-                //- img.ui.image.checkin_banner(src="{{c.url banner_image width=1000 height=1000 crop='crop'}}")
-                .four.wide.column.scrolling
-                    a.item.mobile.hidden(href="/user/#{current_user.username}")
-                        img.ui.fluid.rounded.image(src="{{c.url current_user.image_id height=300 width=300 gravity='face' crop='fill'}}")
-                    // .spacer
-                    .ui.center.aligned.header
-                        // strong #{name}
-                        strong #{user.first_name} #{user.last_name}
-                        small @#{user.username}        
-                    a.ui.center.aligned.inline.header.mobile.hidden(href="/user/#{current_user.username}/credit" title='credit')
-                        |#{user.points}p
-                    if is_current_user
-                        a.ui.icon.circular.button(href="/user/#{current_user.username}/edit" title='profile settings')
-                            i.cog.large.icon
-                            // |edit profile
-                    else if is_admin
-                        a.ui.button(href="/user/#{current_user.username}/edit" title='profile settings')
-                            +i name='settings' cl='ui avatar image'
-                            // |edit profile
-                    // unless is_current_user
-                    //     +friend_button
-                    if is_current_user
-                        .ui.large.compact.icon.circular.button.logout
-                            i.sign.out.alternate.large.icon
-                            // |log out
-                    if admin
-                        .ui.header
-                            i.shield.icon
-                            |admin
-                    +array_view key='roles' label='roles' direct=true icon='shield'
-                    // a.ui.button.logout_other_clients(href="#" title='logout other clients')
-                    //     i.globe.icon
-                    //     |log out other clients
-                    // if is_current_user
-                .twelve.wide.column.scrollin
-                    +user_credit
-                    .ui.three.stackable.cards
-                        .ui.card
-                            .content
-                                .ui.header
-                                    +i name='check' cl='ui avatar image'
-                                    |orders
-                                .ui.list 
-                                    each user_orders
-                                        .item #{when}
-                        .ui.card
-                            .content
-                                a.header(href="/user/#{username}/subscriptions")
-                                    +i name='clock' cl='ui avatar image'
-                                    |subscriptions
-                                each user_subs
-                                    .ui.header #{when}
-                        .ui.card
-                            .content
-                                +user_addresses
-                        .ui.card
-                            .content
-                                +user_deliveries
-                        .ui.card
-                            .content
-                                +user_pantry
-                        .ui.card
-                            .content
-                                a.header(href="/user/#{username}/friends")
-                                    +i name='groups' cl='ui avatar image'
-                                    |friends
-                        .ui.card
-                            .content
-                                a.header(href="/user/#{username}/giftcards")
-                                    +i name='gift-card' cl='ui avatar image'
-                                    |gift cards
-                                each gift_cards
-                                    .ui.header #{when}
-                        // .ui.card
-                        //     .content
-                        //         a.header(href="/user/#{username}/favorites")
-                        //             +i name='love' cl='ui avatar image'
-                        //             |favorites
-                        //         each favorites
-                        //             .ui.header #{when}
-                        .ui.card
-                            .content
-                                a.header(href="/user/#{username}/ingredients")
-                                    +i name='ingredients' cl='ui avatar image'
-                                    |ingredients
-                                if liked_ingredients
-                                    .ui.small.header
-                                        i.thumbs.up.grey.icon
-                                        |liked ingredients
-                                    each liked_ingredients
-                                        .item #{when}
-                                if disliked_ingredients
-                                    .ui.small.inline.header 
-                                        i.thumbs.down.grey.icon
-                                        |disliked ingredients
-                                    .ui.list
-                                        each disliked_ingredients
-                                            .item #{title}
-                    
+        .ui.three.column.padded.grid
+            //- img.ui.image.checkin_banner(src="{{c.url banner_image width=1000 height=1000 crop='crop'}}")
+            .column
+                a.item.mobile.hidden(href="/user/#{current_user.username}")
+                    img.ui.fluid.rounded.image(src="{{c.url current_user.image_id height=300 width=300 gravity='face' crop='fill'}}")
+                // .spacer
+                .ui.center.aligned.header
+                    // strong #{name}
+                    strong #{user.first_name} #{user.last_name}
+                    small @#{user.username}        
+                a.ui.center.aligned.inline.header.mobile.hidden(href="/user/#{current_user.username}/credit" title='credit')
+                    |#{user.points}p
+                if is_current_user
+                    a.ui.icon.circular.button(href="/user/#{current_user.username}/edit" title='profile settings')
+                        i.cog.large.icon
+                        // |edit profile
+                else if is_admin
+                    a.ui.button(href="/user/#{current_user.username}/edit" title='profile settings')
+                        +i name='settings' cl='ui avatar image'
+                        // |edit profile
+                unless is_current_user
+                    +friend_button
+                if is_current_user
+                    .ui.large.compact.icon.circular.button.logout
+                        i.sign.out.alternate.large.icon
+                        // |log out
+                if admin
+                    .ui.header
+                        i.shield.icon
+                        |admin
+                +array_view key='roles' label='roles' direct=true icon='shield'
+                // a.ui.button.logout_other_clients(href="#" title='logout other clients')
+                //     i.globe.icon
+                //     |log out other clients
+                // if is_current_user
+            .column
+                +user_credit
+            .column
+                .ui.segment
+                    .ui.header
+                        +i name='check' cl='ui avatar image'
+                        |orders
+                    .ui.list 
+                        each user_orders
+                            .item #{when}
+            .column
+                .ui.segment
+                    a.header(href="/user/#{username}/subscriptions")
+                        +i name='clock' cl='ui avatar image'
+                        |subscriptions
+                    each user_subs
+                        .ui.header #{when}
+            .column
+                .ui.segment
+                    +user_addresses
+            .column
+                .ui.segment
+                    +user_deliveries
+            .column
+                .ui.segment
+                    +user_pantry
+            .column
+                .ui.segment
+                    a.header(href="/user/#{username}/friends")
+                        +i name='groups' cl='ui avatar image'
+                        |friends
+            .column
+                .ui.segment
+                    a.header(href="/user/#{username}/giftcards")
+                        +i name='gift-card' cl='ui avatar image'
+                        |gift cards
+                    each gift_cards
+                        .ui.header #{when}
+            .column
+                .ui.segment
+                    a.header(href="/user/#{username}/favorites")
+                        +i name='love' cl='ui avatar image'
+                        |favorites
+                    each favorites
+                        .ui.header #{when}
+            .column
+                .ui.segment
+                    a.header(href="/user/#{username}/ingredients")
+                        +i name='ingredients' cl='ui avatar image'
+                        |ingredients
+                    if liked_ingredients
+                        .ui.small.header
+                            i.thumbs.up.grey.icon
+                            |liked ingredients
+                        each liked_ingredients
+                            .item #{when}
+                    if disliked_ingredients
+                        .ui.small.inline.header 
+                            i.thumbs.down.grey.icon
+                            |disliked ingredients
+                        .ui.list
+                            each disliked_ingredients
+                                .item #{title}
+            
                     
                     
 template(name='user_favorites')
