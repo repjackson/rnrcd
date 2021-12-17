@@ -110,7 +110,9 @@ if Meteor.isClient
                     order_id: Router.current().params.doc_id
                     order_status:'ready'
 
-
+    Template.checkout.events
+        'click .submit_order': ->
+            Meteor.call 'stripe', ->
     Template.order.helpers
         can_order: ->
             # if StripeCheckout

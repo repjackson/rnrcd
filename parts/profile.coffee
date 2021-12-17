@@ -35,6 +35,12 @@ if Meteor.isClient
         user: ->
             Meteor.users.findOne username:Router.current().params.username
 
+
+        user_orders: ->
+            user = Meteor.users.findOne username:Router.current().params.username
+            Docs.find 
+                model:'order'
+                _author_id:user._id
     Template.profile.events
         'click .logout_other_clients': ->
             Meteor.logoutOtherClients()
@@ -47,7 +53,6 @@ if Meteor.isClient
             
     Template.topup_button.events
         'click .topup': ->
-            
             $('body').toast(
                 showIcon: 'food'
                 message: "100 crumbs added"
@@ -183,13 +188,13 @@ if Meteor.isClient
             # )
             
             $('body').toast(
-                # showIcon: 'heart'
+                showIcon: 'cookie'
                 message: "crumb earned"
                 class: 'success'
-                displayTime: 300,
-                # showProgress: 'bottom',
+                # displayTime: 300,
+                showProgress: 'bottom',
                 # classProgress: 'red'
-                # position: "bottom right"
+                position: "bottom right"
             )
             Meteor.users.update Meteor.userId(),
                 $inc: 

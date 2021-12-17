@@ -79,19 +79,6 @@ if Meteor.isClient
             #     Router.go "/source/#{product.source_id}"
             # , 240
         
-        'click .add_to_cart': ->
-            if Meteor.user()
-                Meteor.call 'add_to_cart', @_id, =>
-                    $('body').toast(
-                        showIcon: 'cart plus'
-                        message: "#{@title} added"
-                        showProgress: 'bottom'
-                        class: 'success'
-                        displayTime: '3000',
-                        position: "bottom right"
-                    )
-            else 
-                Router.go "/login"
 
 
     Template.product_subscriptions.events
@@ -198,69 +185,35 @@ if Meteor.isClient
                 'yellow'
                 
                 
-    Template.order_button.onCreated ->
+    Template.add_to_cart_button.onCreated ->
 
-    Template.order_button.helpers
+    Template.add_to_cart_button.helpers
 
-    Template.order_button.events
-        # 'click .join_waitlist': ->
-        #     Swal.fire({
-        #         title: 'confirm wait list join',
-        #         text: 'this will charge your account if orders cancel'
-        #         icon: 'question'
-        #         showCancelButton: true,
-        #         confirmButtonText: 'confirm'
-        #         cancelButtonText: 'cancel'
-        #     }).then((result) =>
-        #         if result.value
-        #             Docs.insert
-        #                 model:'order'
-        #                 waitlist:true
-        #                 product_id: Router.current().params.doc_id
-        #             Swal.fire(
-        #                 'wait list joined',
-        #                 "you'll be alerted if accepted"
-        #                 'success'
-        #             )
-        #     )
-
-        'click .order_product': ->
-            # if Meteor.user().credit >= @price_per_serving
-            # Docs.insert
-            #     model:'order'
-            #     status:'pending'
-            #     complete:false
-            #     product_id: Router.current().params.doc_id
-            #     if @serving_unit
-            #         serving_text = @serving_unit
-            #     else
-            #         serving_text = 'serving'
-            # Swal.fire({
-            #     # title: "confirm buy #{serving_text}"
-            #     title: "confirm order?"
-            #     text: "this will charge you #{@price}"
-            #     icon: 'question'
-            #     showCancelButton: true,
-            #     confirmButtonText: 'confirm'
-            #     cancelButtonText: 'cancel'
-            # }).then((result) =>
-            #     if result.value
+    Template.add_to_cart_button.events
+        'click .add_to_cart': ->
             if Meteor.user()
-                Meteor.call 'add_to_cart', @_id, (err, res)->
+                Meteor.call 'add_to_cart', @_id, (err, res)=>
                     if err
-                        Swal.fire(
-                            'err'
-                            'error'
+                        $('body').toast(
+                            # showIcon: 'alert'
+                            showImage: "https://res.cloudinary.com/facet/image/upload/vt6p4vyzgyixxt4y0c8j"
+                            # showImage: "https://res.cloudinary.com/facet/image/upload/#{@image_id}"
+                            imageClass: 'avatar'
+                            message: "err: #{err}"
+                            showProgress: 'bottom'
+                            class: 'error'
+                            displayTime: 'auto',
+                            position: "top right"
                         )
-                        console.log err
                     else
                         # Router.go "/order/#{res}/edit"
-                        Swal.fire(
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'added to cart',
-                            showConfirmButton: false,
-                            timer: 1500
+                        $('body').toast(
+                            showIcon: 'cart-plus'
+                            message: "#{@title} added to cart"
+                            showProgress: 'bottom'
+                            class: 'success'
+                            displayTime: 'auto',
+                            position: "top right"
                         )
             else 
                 Router.go "/login"
