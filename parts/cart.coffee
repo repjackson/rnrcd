@@ -33,8 +33,13 @@ if Meteor.isClient
 
     Template.checkout.onCreated ->
         @autorun => Meteor.subscribe 'doc', Router.current().params.doc_id, ->
+        @autorun => Meteor.subscribe 'current_order', ->
         @autorun => Meteor.subscribe 'cart_items', Router.current().params.doc_id, ->
     Template.checkout.helpers 
+        current_order: ->
+            Docs.findOne 
+                model:'order'
+                _author_id:Meteor.userId()
         cart_items: ->
             Docs.find
                 model:'cart_item'
@@ -54,14 +59,20 @@ if Meteor.isClient
         'click .checkout_cart': ->
             $('.ui.sidebar.cartbar').sidebar('hide')
 
-    Template.cart_item.events
-        'click .increase_amount': ->
+    Template.increase_amount.events
+        'click .increase': (e,t)->
+            $(e.currentTarget).closest('.item').transition('bounce', 500)
             Docs.update @_id, 
                 $inc:amount:1
-        'click .decrease_amount': ->
+    Template.decrease_amount.events
+        'click .decrease': (e,t)->
             if @amount is 1
-                Docs.remove @_id
+                $(e.currentTarget).closest('.item').transition('fly right', 500)
+                Meteor.setTimeout =>
+                    Docs.remove @_id
+                , 500
             else 
+                $(e.currentTarget).closest('.item').transition('bounce', 500)
                 Docs.update @_id, 
                     $inc:amount:-1
         
